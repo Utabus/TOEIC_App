@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Listening – AV Practice</title>
+  <meta name="description" content="Luyện nghe TOEIC với audio chuẩn, đề PDF và câu hỏi trắc nghiệm tự chấm điểm."/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ── Layout ── */
+    .top-bar { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; flex-wrap:wrap; gap:12px; }
+    .part-info-box { background:rgba(6,182,212,0.07); border:1px solid rgba(6,182,212,0.25); border-radius:var(--radius-sm); padding:12px 16px; margin-bottom:16px; }
+    .part-desc { font-size:0.85rem; color:var(--text-secondary); margin-top:4px; }
+    .sticky-player { position:sticky; top:60px; z-index:50; background:var(--bg-primary); padding:14px 0; border-bottom:1px solid var(--border); margin-bottom:20px; }
+
+    /* ── Three-column layout ── */
+    .three-col { display:grid; grid-template-columns:1fr 1fr 360px; gap:18px; align-items:start; }
+    @media(max-width:1200px){ .three-col { grid-template-columns:1fr 360px; } }
+    @media(max-width:800px){ .three-col { grid-template-columns:1fr; } }
+    .hide-md { } @media(max-width:1200px){ .hide-md{ display:none; } }
+
+    /* ── PDF ── */
+    .pdf-toolbar { display:flex; align-items:center; gap:8px; padding:8px 14px; background:var(--bg-secondary); border:1px solid var(--border); border-bottom:none; border-radius:var(--radius-sm) var(--radius-sm) 0 0; font-size:0.82rem; color:var(--text-muted); }
+    .pdf-frame { width:100%; height:calc(100vh - 250px); min-height:400px; border:none; border-radius:0 0 var(--radius-sm) var(--radius-sm); background:#fff; }
+
+    /* ── MCQ ── */
+    .mcq-header { font-size:0.82rem; color:var(--text-muted); margin-bottom:12px; }
+    .question-block { background:var(--bg-secondary); border:1px solid var(--border); border-radius:var(--radius-sm); padding:14px 16px; margin-bottom:10px; transition:var(--transition); }
+    .question-block:hover { border-color:var(--border-hover); }
+    .q-num { font-size:0.78rem; color:var(--accent-2); font-weight:600; margin-bottom:6px; }
+    .q-text { font-size:0.88rem; font-weight:500; margin-bottom:10px; line-height:1.5; }
+    .q-options { display:flex; flex-direction:column; gap:6px; }
+    .q-option {
+      display:flex; align-items:flex-start; gap:10px; padding:8px 12px;
+      border-radius:var(--radius-sm); border:1px solid var(--border);
+      background:var(--bg-card); cursor:pointer; transition:var(--transition);
+      font-size:0.85rem; line-height:1.4;
+    }
+    .q-option:hover { border-color:var(--border-hover); background:var(--bg-card-hover); }
+    .q-option.selected { border-color:var(--accent); background:rgba(108,99,255,0.12); }
+    .q-option.correct { border-color:var(--success); background:rgba(34,197,94,0.12); color:var(--success); }
+    .q-option.wrong { border-color:var(--danger); background:rgba(239,68,68,0.12); color:var(--danger); }
+    .opt-label { font-weight:700; min-width:18px; }
+    /* ── Audio-options: big letter buttons for Part 1 & 2 ── */
+    .q-options-audio { display:flex; gap:8px; flex-wrap:wrap; margin-top:4px; }
+    .q-opt-audio {
+      width:48px; height:48px; border-radius:50%;
+      border:2px solid var(--border); background:var(--bg-card);
+      color:var(--text-secondary); font-size:1.1rem; font-weight:700;
+      cursor:pointer; transition:var(--transition);
+      display:flex; align-items:center; justify-content:center;
+    }
+    .q-opt-audio:hover { border-color:var(--border-hover); color:var(--text-primary); background:var(--bg-card-hover); }
+    .q-opt-audio.selected { border-color:var(--accent); background:rgba(108,99,255,0.18); color:var(--accent-2); }
+    .q-opt-audio.correct  { border-color:var(--success); background:rgba(34,197,94,0.18); color:var(--success); }
+    .q-opt-audio.wrong    { border-color:var(--danger);  background:rgba(239,68,68,0.18);  color:var(--danger); }
+    .audio-hint { font-size:0.76rem; color:var(--text-muted); margin-top:6px; font-style:italic; }
+
+    /* ── Score ── */
+    .score-card { background:linear-gradient(135deg,rgba(108,99,255,0.15),rgba(167,139,250,0.08)); border:1px solid rgba(108,99,255,0.3); border-radius:var(--radius); padding:20px; text-align:center; }
+    .score-num { font-size:2.5rem; font-weight:800; background:linear-gradient(135deg,var(--accent),var(--accent-2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .score-label { font-size:0.85rem; color:var(--text-muted); margin-top:4px; }
+
+    /* ── Sidebar ── */
+    .sidebar-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:18px; margin-bottom:14px; }
+    .note-area { width:100%; min-height:110px; background:var(--bg-secondary); color:var(--text-primary); border:1px solid var(--border); border-radius:var(--radius-sm); padding:10px; font-family:inherit; font-size:0.875rem; resize:vertical; outline:none; transition:var(--transition); }
+    .note-area:focus { border-color:var(--accent-listening); }
+    .progress-parts { display:flex; flex-direction:column; gap:6px; }
+    .prog-item { display:flex; align-items:center; gap:8px; font-size:0.82rem; }
+    .prog-dot { width:10px; height:10px; border-radius:50%; border:2px solid var(--border); flex-shrink:0; }
+    .prog-dot.done { background:var(--success); border-color:var(--success); }
+
+    /* ── Audio ── */
+    .audio-player { background:var(--bg-secondary); border:1px solid var(--border); border-radius:var(--radius); padding:16px; }
+    .track-name { font-size:0.88rem; font-weight:600; margin-bottom:10px; color:var(--accent-listening); }
+    .audio-controls { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+    .play-btn { background:linear-gradient(135deg,var(--accent-listening),#0284c7); color:#fff; width:40px; height:40px; border-radius:50%; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:var(--transition); }
+    .play-btn:hover { transform:scale(1.08); }
+    .seek-bar { flex:1; min-width:80px; height:5px; border-radius:99px; -webkit-appearance:none; appearance:none; background:var(--border); cursor:pointer; outline:none; }
+    .seek-bar::-webkit-slider-thumb { -webkit-appearance:none; width:14px; height:14px; border-radius:50%; background:var(--accent-listening); cursor:pointer; }
+    .time-text { font-size:0.78rem; color:var(--text-muted); font-variant-numeric:tabular-nums; white-space:nowrap; }
+    .ctrl-btn { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--text-secondary); padding:5px 9px; cursor:pointer; font-size:0.8rem; font-weight:600; transition:var(--transition); }
+    .ctrl-btn:hover { color:var(--text-primary); border-color:var(--border-hover); }
+    .ctrl-btn.active-speed { color:var(--accent-2); border-color:var(--accent); }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="logo">🎓 AV Practice</a>
+  <div class="nav-links">
+    <a href="index.html">Trang chủ</a>
+    <a href="listening.html" class="active">Listening</a>
+    <a href="reading.html">Reading</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- Top bar -->
+  <div class="top-bar">
+    <div>
+      <h1 class="section-title" style="font-size:1.35rem">🎧 Listening Practice</h1>
+      <div class="text-muted" id="test-label" style="margin-top:4px">Đang tải...</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="timer-display" id="timer-display">45:00</div>
+      <button class="btn btn-secondary btn-sm" id="btn-timer" style="min-width:74px">▶ Start</button>
+      <button class="btn btn-secondary btn-sm" id="btn-check" style="display:none">📊 Chấm điểm</button>
+    </div>
+  </div>
+
+  <!-- Part tabs -->
+  <div style="margin-bottom:16px">
+    <div class="text-muted text-sm mb-16">Chọn Part:</div>
+    <div class="part-tabs" id="part-tabs"></div>
+  </div>
+
+  <!-- Part info -->
+  <div class="part-info-box" id="part-info">
+    <div style="font-weight:600;font-size:0.9rem" id="part-title">–</div>
+    <div class="part-desc" id="part-desc">–</div>
+    <div style="font-size:0.78rem;color:var(--text-muted);margin-top:5px" id="part-range">–</div>
+  </div>
+
+  <!-- Sticky audio player -->
+  <div class="sticky-player">
+    <div class="audio-player" id="audio-player">
+      <div class="track-name" id="track-name">Chọn Part để bắt đầu</div>
+      <div class="audio-controls">
+        <button class="play-btn" id="btn-play">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <span class="time-text" id="tc">0:00</span>
+        <input type="range" class="seek-bar" id="seek" value="0" min="0" step="0.1"/>
+        <span class="time-text" id="tt">0:00</span>
+        <button class="ctrl-btn" id="btn-b10" title="Lùi 10s">«10</button>
+        <button class="ctrl-btn" id="btn-f10" title="Tới 10s">10»</button>
+        <button class="ctrl-btn active-speed" id="btn-spd">1×</button>
+      </div>
+    </div>
+    <audio id="audio" preload="metadata"></audio>
+  </div>
+
+  <!-- Main 3-col grid -->
+  <div class="three-col">
+
+    <!-- COL 1: PDF (hidden on medium screens) -->
+    <div class="hide-md">
+      <div class="pdf-toolbar">📄 Đề thi nghe
+        <a href="#" id="pdf-link" class="btn btn-secondary btn-sm" style="margin-left:auto" target="_blank">Mở PDF ↗</a>
+      </div>
+      <iframe id="pdf-frame" class="pdf-frame" src="" title="Listening questions PDF"></iframe>
+    </div>
+
+    <!-- COL 2: MCQ Questions -->
+    <div>
+      <div class="section-header mb-16">
+        <span class="section-title">📝 Câu hỏi</span>
+        <span class="badge badge-cyan" id="q-count">–</span>
+      </div>
+      <div id="mcq-container">
+        <div class="text-muted" style="padding:24px;text-align:center">Chọn Part để xem câu hỏi</div>
+      </div>
+
+      <!-- Score result (hidden until graded) -->
+      <div id="score-area" style="display:none;margin-top:20px">
+        <div class="score-card">
+          <div class="score-num" id="score-num">0/0</div>
+          <div class="score-label">câu đúng</div>
+          <div style="margin-top:12px;font-size:0.85rem;color:var(--text-secondary)" id="score-detail"></div>
+        </div>
+        <button class="btn btn-secondary" style="margin-top:12px;width:100%" id="btn-retry">🔄 Làm lại</button>
+      </div>
+    </div>
+
+    <!-- COL 3: Sidebar -->
+    <div>
+      <!-- Progress -->
+      <div class="sidebar-card">
+        <div class="section-title mb-16">📊 Tiến độ</div>
+        <div class="progress-parts" id="prog-list"></div>
+        <div class="progress-bar mt-16" style="margin-top:10px">
+          <div class="progress-fill" id="prog-fill" style="width:0%"></div>
+        </div>
+      </div>
+
+      <!-- Notes -->
+      <div class="sidebar-card">
+        <div class="section-title mb-16">📝 Ghi chú</div>
+        <textarea class="note-area" id="notes" placeholder="Ghi từ vựng, cấu trúc khó..."></textarea>
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <button class="btn btn-secondary btn-sm" id="btn-save">💾 Lưu</button>
+          <button class="btn btn-secondary btn-sm" id="btn-clr">🗑 Xóa</button>
+        </div>
+      </div>
+
+      <!-- Done -->
+      <button class="btn btn-primary" id="btn-done" style="width:100%">✅ Đánh dấu hoàn thành</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(async () => {
+  // ─── Helpers ───
+  const $ = id => document.getElementById(id);
+  const store = {
+    get: (k,d) => { try { return JSON.parse(localStorage.getItem(k))??d; } catch { return d; } },
+    set: (k,v) => localStorage.setItem(k, JSON.stringify(v))
+  };
+  const fmt = s => { s=Math.floor(s||0); return `${Math.floor(s/60)}:${(s%60).toString().padStart(2,'0')}`; };
+  const toast = (msg, col='var(--success)') => {
+    const t = Object.assign(document.createElement('div'),{className:'toast',textContent:msg});
+    t.style.borderLeft = `3px solid ${col}`;
+    document.body.appendChild(t); setTimeout(()=>t.remove(),2800);
+  };
+
+  // ─── Load data ───
+  const testId = new URLSearchParams(location.search).get('test') || 'test1';
+  let test = null;
+  try {
+    const r = await fetch('data/tests.json');
+    const j = await r.json();
+    test = j.tests.find(t=>t.id===testId);
+  } catch(e) { $('test-label').textContent='⚠️ Không tải được dữ liệu (cần chạy qua server)'; return; }
+  if (!test) { $('test-label').textContent='⚠️ Không tìm thấy test'; return; }
+
+  const L = test.listening;
+  $('test-label').textContent = test.name + ' · Listening';
+  document.title = `Listening – ${test.name} – AV Practice`;
+
+  // PDF
+  $('pdf-frame').src = L.questionsPdf;
+  $('pdf-link').href = L.questionsPdf;
+
+  // ─── Audio ───
+  const audioEl = $('audio');
+  const seekEl  = $('seek');
+  let speeds = [0.75,1,1.25,1.5], si = 1;
+
+  const setPlayIcon = p => $('btn-play').innerHTML = p
+    ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>'
+    : '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+
+  audioEl.addEventListener('timeupdate', () => {
+    if (!audioEl.duration) return;
+    seekEl.value = (audioEl.currentTime/audioEl.duration)*100;
+    $('tc').textContent = fmt(audioEl.currentTime);
+    $('tt').textContent = fmt(audioEl.duration);
+  });
+  audioEl.addEventListener('ended', () => { setPlayIcon(false); });
+  seekEl.addEventListener('input', () => { if (audioEl.duration) audioEl.currentTime=(seekEl.value/100)*audioEl.duration; });
+  $('btn-play').addEventListener('click', () => {
+    if (!audioEl.src||audioEl.src==='about:blank') { toast('Chọn Part trước!','var(--warning)'); return; }
+    audioEl.paused ? (audioEl.play(), setPlayIcon(true)) : (audioEl.pause(), setPlayIcon(false));
+  });
+  $('btn-b10').addEventListener('click', () => audioEl.currentTime=Math.max(0,audioEl.currentTime-10));
+  $('btn-f10').addEventListener('click', () => audioEl.currentTime=Math.min(audioEl.duration||0,audioEl.currentTime+10));
+  $('btn-spd').addEventListener('click', () => {
+    si=(si+1)%speeds.length; audioEl.playbackRate=speeds[si];
+    $('btn-spd').textContent=speeds[si]+'×';
+  });
+
+  // ─── Answers state ───
+  let userAnswers = {}; // { qId: "A"|"B"|"C"|"D" }
+  let graded = false;
+  let currentPartId = null;
+
+  // ─── Progress ───
+  const listenedKey = `av_listened_${testId}`;
+  let listened = store.get(listenedKey, []);
+
+  const renderProgress = () => {
+    const total = L.parts.length, done = listened.length;
+    $('prog-fill').style.width = `${(done/total)*100}%`;
+    $('prog-list').innerHTML = L.parts.map(p => `
+      <div class="prog-item">
+        <div class="prog-dot ${listened.includes(p.id)?'done':''}"></div>
+        <span style="color:${listened.includes(p.id)?'var(--success)':'var(--text-secondary)'}">${p.name} – ${p.label}</span>
+        ${listened.includes(p.id)?'<span style="margin-left:auto;font-size:0.75rem;color:var(--success)">✓ Done</span>':''}
+      </div>`).join('');
+  };
+
+  // ─── Render MCQ ───
+  const renderMCQ = (part) => {
+    const qs = part.questions || [];
+    // All questions that have options (includes audioOptions)
+    const gradableQs = qs.filter(q => q.options && Object.keys(q.options).length > 0);
+
+    $('q-count').textContent = `${qs.length} câu hỏi`;
+    graded = false;
+    $('score-area').style.display = 'none';
+    $('btn-check').style.display = gradableQs.length > 0 ? 'inline-flex' : 'none';
+
+    $('mcq-container').innerHTML = gradableQs.map(q => {
+      const opts = Object.keys(q.options); // ['A','B','C','D'] or ['A','B','C']
+      const isAudio = !!q.audioOptions;    // Part 1 & 2: big letter buttons
+
+      if (isAudio) {
+        // Big circle letter buttons — no text, just A/B/C/D
+        return `<div class="question-block" id="qb-${q.id}" style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+          <div style="min-width:56px;font-size:0.85rem;font-weight:700;color:var(--accent-2)">Câu ${q.id}</div>
+          <div class="q-options-audio">
+            ${opts.map(o =>
+              `<button class="q-opt-audio" id="opt-${q.id}-${o}" onclick="selectOpt(${q.id},'${o}')">${o}</button>`
+            ).join('')}
+          </div>
+          <div class="audio-hint">Nghe audio → chọn đáp án</div>
+        </div>`;
+      } else {
+        // Standard MCQ with full text
+        return `<div class="question-block" id="qb-${q.id}">
+          <div class="q-num">Câu ${q.id}</div>
+          <div class="q-text">${q.text}</div>
+          <div class="q-options">
+            ${opts.map(o => `
+              <div class="q-option" id="opt-${q.id}-${o}" onclick="selectOpt(${q.id},'${o}')">
+                <span class="opt-label">${o}</span>
+                <span>${q.options[o]||''}</span>
+              </div>`).join('')}
+          </div>
+        </div>`;
+      }
+    }).join('');
+
+    // Restore previous answers
+    gradableQs.forEach(q => {
+      if (userAnswers[q.id]) applySelect(q.id, userAnswers[q.id], !!q.audioOptions);
+    });
+  };
+
+  // ─── Select option ───
+  window.selectOpt = (qId, opt) => {
+    if (graded) return;
+    ['A','B','C','D'].forEach(o => {
+      document.getElementById(`opt-${qId}-${o}`)?.classList.remove('selected');
+    });
+    document.getElementById(`opt-${qId}-${opt}`)?.classList.add('selected');
+    userAnswers[qId] = opt;
+  };
+
+  const applySelect = (qId, opt) => {
+    ['A','B','C','D'].forEach(o => document.getElementById(`opt-${qId}-${o}`)?.classList.remove('selected'));
+    document.getElementById(`opt-${qId}-${opt}`)?.classList.add('selected');
+  };
+
+  // ─── Grade ───
+  $('btn-check').addEventListener('click', () => {
+    const part = L.parts.find(p=>p.id===currentPartId);
+    if (!part) return;
+    const qs = (part.questions||[]).filter(q => q.options && Object.keys(q.options).length > 0);
+    let correct = 0, answered = 0;
+    qs.forEach(q => {
+      const ua = userAnswers[q.id];
+      const allOpts = ['A','B','C','D'];
+      allOpts.forEach(o => {
+        const el = document.getElementById(`opt-${q.id}-${o}`);
+        if (!el) return;
+        el.classList.remove('selected','correct','wrong');
+        if (o === q.answer) el.classList.add('correct');
+        else if (o === ua && ua !== q.answer) el.classList.add('wrong');
+      });
+      if (ua) answered++;
+      if (ua === q.answer) correct++;
+    });
+    graded = true;
+    const pct = qs.length > 0 ? Math.round((correct/qs.length)*100) : 0;
+    $('score-area').style.display = 'block';
+    $('score-num').textContent = `${correct}/${qs.length}`;
+    $('score-detail').textContent = `${pct}% · ${answered < qs.length ? `(chưa làm ${qs.length-answered} câu) · ` : ''}${pct>=80?'Xuất sắc! 🎉':pct>=60?'Khá tốt 👍':'Cần luyện thêm 💪'}`;
+    $('score-area').scrollIntoView({behavior:'smooth', block:'nearest'});
+    if (!listened.includes(currentPartId)) { listened.push(currentPartId); store.set(listenedKey,listened); renderProgress(); }
+  });
+
+  $('btn-retry').addEventListener('click', () => {
+    userAnswers = {}; graded = false;
+    const part = L.parts.find(p=>p.id===currentPartId);
+    if (part) renderMCQ(part);
+    $('score-area').style.display='none';
+  });
+
+  // ─── Load part ───
+  const loadPart = (part) => {
+    currentPartId = part.id;
+    audioEl.pause(); setPlayIcon(false);
+    audioEl.src = part.audio; audioEl.load();
+    $('track-name').textContent = `${part.name} – ${part.label} (Câu ${part.questionRange})`;
+    $('tc').textContent='0:00'; $('tt').textContent='...'; seekEl.value=0;
+    $('part-title').textContent=`${part.name} – ${part.label}`;
+    $('part-desc').textContent=part.description;
+    $('part-range').textContent=`Câu hỏi ${part.questionRange}`;
+    document.querySelectorAll('.part-tab').forEach(t=>t.classList.toggle('active',t.dataset.pid===part.id));
+    userAnswers={}; graded=false;
+    renderMCQ(part);
+    // Track stats
+    const s=store.get('av_stats',{testsDone:0,listeningCount:0,readingCount:0});
+    s.listeningCount=(s.listeningCount||0)+1; store.set('av_stats',s);
+  };
+
+  // ─── Part tabs ───
+  $('part-tabs').innerHTML = L.parts.map(p =>
+    `<button class="part-tab" data-pid="${p.id}">${p.name}<br/><small style="opacity:.65">${p.label}</small></button>`
+  ).join('');
+  $('part-tabs').addEventListener('click', e => {
+    const btn = e.target.closest('[data-pid]');
+    if (btn) { const p=L.parts.find(x=>x.id===btn.dataset.pid); if(p) loadPart(p); }
+  });
+
+  // ─── Timer ───
+  let timerSecs = L.timeLimit||2700, timerOn=false, timerInt=null;
+  const renderTimer = () => {
+    $('timer-display').textContent=fmt(timerSecs);
+    $('timer-display').className='timer-display'+(timerSecs<300?' danger':timerSecs<600?' warning':'');
+  };
+  renderTimer();
+  $('btn-timer').addEventListener('click',()=>{
+    if(timerOn){clearInterval(timerInt);timerOn=false;$('btn-timer').textContent='▶ Start';}
+    else{timerOn=true;$('btn-timer').textContent='⏸ Pause';timerInt=setInterval(()=>{if(timerSecs<=0){clearInterval(timerInt);toast('⏰ Hết giờ!','var(--danger)');return;}timerSecs--;renderTimer();},1000);}
+  });
+
+  // ─── Notes ───
+  const noteKey=`av_note_L_${testId}`;
+  $('notes').value=store.get(noteKey,'');
+  $('btn-save').addEventListener('click',()=>{store.set(noteKey,$('notes').value);toast('💾 Đã lưu!');});
+  $('btn-clr').addEventListener('click',()=>{if(confirm('Xóa ghi chú?')){$('notes').value='';store.set(noteKey,'');}});
+
+  // ─── Mark done ───
+  const prog=store.get(`av_prog_${testId}`,{});
+  if(prog.listeningDone){$('btn-done').textContent='✅ Đã hoàn thành!';$('btn-done').disabled=true;}
+  $('btn-done').addEventListener('click',()=>{
+    const p=store.get(`av_prog_${testId}`,{}); p.listeningDone=true; store.set(`av_prog_${testId}`,p);
+    const s=store.get('av_stats',{testsDone:0,listeningCount:0,readingCount:0});
+    s.testsDone=(s.testsDone||0)+1; store.set('av_stats',s);
+    toast('🎉 Đã hoàn thành Listening!');
+    $('btn-done').textContent='✅ Đã hoàn thành!'; $('btn-done').disabled=true;
+  });
+
+  // ─── Init ───
+  renderProgress();
+  if(L.parts.length) loadPart(L.parts[0]);
+})();
+</script>
+</body>
+</html>

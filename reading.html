@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reading – AV Practice</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .reading-layout { display:grid; grid-template-columns:1fr 480px; gap:18px; align-items:start; }
+    @media(max-width:1100px){ .reading-layout { grid-template-columns:1fr; } }
+
+    /* PDF sticky */
+    .pdf-sticky { position:sticky; top:60px; }
+    .pdf-toolbar { display:flex; align-items:center; gap:8px; padding:8px 14px; background:var(--bg-secondary); border:1px solid var(--border); border-bottom:none; border-radius:var(--radius-sm) var(--radius-sm) 0 0; font-size:0.82rem; color:var(--text-muted); }
+    .pdf-frame { width:100%; height:calc(100vh - 150px); min-height:500px; border:none; border-radius:0 0 var(--radius-sm) var(--radius-sm); background:#fff; }
+
+    /* Part tabs */
+    .part-tab { padding:8px 16px; border-radius:var(--radius-sm); border:1px solid var(--border); background:var(--bg-card); color:var(--text-secondary); cursor:pointer; font-size:0.85rem; font-weight:500; transition:var(--transition); }
+    .part-tab:hover { border-color:var(--border-hover); color:var(--text-primary); }
+    .part-tab.active { background:rgba(16,185,129,0.15); border-color:var(--accent-reading); color:var(--accent-reading); }
+
+    /* Part info */
+    .part-info-box { background:rgba(16,185,129,0.07); border:1px solid rgba(16,185,129,0.25); border-radius:var(--radius-sm); padding:12px 16px; margin-bottom:14px; font-size:0.85rem; color:var(--text-secondary); }
+
+    /* MCQ – full text (Part 5) */
+    .question-block { background:var(--bg-secondary); border:1px solid var(--border); border-radius:var(--radius-sm); padding:14px 16px; margin-bottom:10px; transition:var(--transition); }
+    .q-num { font-size:0.78rem; color:var(--accent-reading); font-weight:700; margin-bottom:5px; }
+    .q-text { font-size:0.9rem; font-weight:500; margin-bottom:10px; line-height:1.6; }
+    .q-options { display:flex; flex-direction:column; gap:6px; }
+    .q-option { display:flex; align-items:flex-start; gap:10px; padding:8px 12px; border-radius:var(--radius-sm); border:1px solid var(--border); background:var(--bg-card); cursor:pointer; font-size:0.85rem; line-height:1.4; transition:var(--transition); }
+    .q-option:hover { border-color:var(--border-hover); background:var(--bg-card-hover); }
+    .q-option.selected { border-color:var(--accent-reading); background:rgba(16,185,129,0.1); }
+    .q-option.correct { border-color:var(--success); background:rgba(34,197,94,0.12); color:var(--success); }
+    .q-option.wrong   { border-color:var(--danger);  background:rgba(239,68,68,0.12);  color:var(--danger); }
+    .opt-label { font-weight:700; min-width:18px; }
+
+    /* Explanation box */
+    .explanation-box { margin-top:8px; padding:10px 12px; background:rgba(16,185,129,0.06); border-left:3px solid var(--accent-reading); border-radius:0 var(--radius-sm) var(--radius-sm) 0; font-size:0.82rem; color:var(--text-secondary); line-height:1.6; display:none; }
+    .explanation-box.show { display:block; }
+    .explanation-label { font-weight:700; color:var(--accent-reading); margin-bottom:4px; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.05em; }
+
+    /* MCQ – compact circle buttons (Part 6 & 7) */
+    .compact-grid { display:flex; flex-direction:column; gap:6px; }
+    .compact-row { display:flex; align-items:center; gap:10px; padding:6px 12px; background:var(--bg-secondary); border:1px solid var(--border); border-radius:var(--radius-sm); transition:var(--transition); }
+    .compact-row:hover { border-color:var(--border-hover); }
+    .compact-row.graded-row { border-color:var(--border); }
+    .compact-qnum { font-size:0.82rem; font-weight:700; color:var(--text-muted); min-width:52px; }
+    .compact-opts { display:flex; gap:6px; }
+    .c-opt { width:36px; height:36px; border-radius:50%; border:2px solid var(--border); background:var(--bg-card); color:var(--text-secondary); font-size:0.88rem; font-weight:700; cursor:pointer; transition:var(--transition); display:flex; align-items:center; justify-content:center; }
+    .c-opt:hover { border-color:var(--border-hover); color:var(--text-primary); }
+    .c-opt.selected { border-color:var(--accent-reading); background:rgba(16,185,129,0.15); color:var(--accent-reading); }
+    .c-opt.correct  { border-color:var(--success); background:rgba(34,197,94,0.18); color:var(--success); }
+    .c-opt.wrong    { border-color:var(--danger);  background:rgba(239,68,68,0.18);  color:var(--danger); }
+    .compact-exp { font-size:0.76rem; color:var(--text-muted); margin-left:auto; max-width:200px; text-align:right; display:none; font-style:italic; }
+    .compact-exp.show { display:block; }
+
+    /* Score */
+    .score-card { background:linear-gradient(135deg,rgba(16,185,129,0.15),rgba(5,150,105,0.08)); border:1px solid rgba(16,185,129,0.35); border-radius:var(--radius); padding:22px; text-align:center; margin-top:16px; }
+    .score-num { font-size:2.8rem; font-weight:800; background:linear-gradient(135deg,var(--accent-reading),#34d399); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+
+    /* Timer */
+    .timer-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:16px; margin-bottom:14px; }
+    .timer-big { font-size:2.2rem; font-weight:800; text-align:center; font-variant-numeric:tabular-nums; padding:12px; border-radius:var(--radius-sm); background:var(--bg-secondary); margin-bottom:10px; }
+
+    /* Top bar */
+    .top-bar { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; flex-wrap:wrap; gap:12px; }
+    .sidebar-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:16px; margin-bottom:14px; }
+    .note-area { width:100%; min-height:100px; background:var(--bg-secondary); color:var(--text-primary); border:1px solid var(--border); border-radius:var(--radius-sm); padding:10px; font-family:inherit; font-size:0.875rem; resize:vertical; outline:none; transition:var(--transition); }
+    .note-area:focus { border-color:var(--accent-reading); }
+    .prog-item { display:flex; align-items:center; gap:8px; font-size:0.82rem; padding:4px 0; }
+    .prog-dot { width:10px; height:10px; border-radius:50%; border:2px solid var(--border); flex-shrink:0; }
+    .prog-dot.done { background:var(--success); border-color:var(--success); }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="logo">🎓 AV Practice</a>
+  <div class="nav-links">
+    <a href="index.html">Trang chủ</a>
+    <a href="listening.html">Listening</a>
+    <a href="reading.html" class="active">Reading</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- Top bar -->
+  <div class="top-bar">
+    <div>
+      <h1 class="section-title" style="font-size:1.35rem">📖 Reading Practice</h1>
+      <div class="text-muted" id="test-label" style="margin-top:4px">Đang tải...</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+      <div class="timer-display" id="timer-display">75:00</div>
+      <button class="btn btn-secondary btn-sm" id="btn-timer" style="min-width:74px">▶ Start</button>
+      <button class="btn btn-green btn-sm" id="btn-check" style="display:none">📊 Chấm điểm</button>
+    </div>
+  </div>
+
+  <!-- Part tabs -->
+  <div style="margin-bottom:16px">
+    <div class="text-muted text-sm mb-16">Chọn Part:</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap" id="part-tabs"></div>
+  </div>
+
+  <!-- Part info -->
+  <div class="part-info-box" id="part-info">–</div>
+
+  <!-- Main layout -->
+  <div class="reading-layout">
+
+    <!-- LEFT: PDF sticky -->
+    <div class="pdf-sticky">
+      <div class="pdf-toolbar">
+        📄 Đề thi Reading
+        <a href="#" id="pdf-link" class="btn btn-secondary btn-sm" style="margin-left:auto" target="_blank">Mở PDF ↗</a>
+      </div>
+      <iframe id="pdf-frame" class="pdf-frame" src="" title="Reading Test PDF"></iframe>
+    </div>
+
+    <!-- RIGHT: MCQ + Sidebar -->
+    <div>
+
+      <!-- Progress -->
+      <div class="sidebar-card mb-16">
+        <div class="section-title mb-16">📊 Tiến độ</div>
+        <div id="prog-list"></div>
+        <div class="progress-bar" style="margin-top:10px">
+          <div class="progress-fill" id="prog-fill" style="width:0%;background:linear-gradient(90deg,var(--accent-reading),#34d399)"></div>
+        </div>
+      </div>
+
+      <!-- MCQ area -->
+      <div class="sidebar-card">
+        <div class="section-header mb-16">
+          <span class="section-title">📝 Câu hỏi</span>
+          <span class="badge badge-green" id="q-count">–</span>
+        </div>
+        <div id="mcq-container">
+          <div class="text-muted" style="text-align:center;padding:20px">Chọn Part để bắt đầu</div>
+        </div>
+
+        <!-- Score -->
+        <div id="score-area" style="display:none">
+          <div class="score-card">
+            <div class="score-num" id="score-num">0/0</div>
+            <div style="font-size:0.85rem;color:var(--text-muted);margin-top:4px">câu đúng</div>
+            <div style="margin-top:10px;font-size:0.9rem;color:var(--text-secondary)" id="score-detail"></div>
+          </div>
+          <button class="btn btn-secondary" style="width:100%;margin-top:12px" id="btn-retry">🔄 Làm lại</button>
+        </div>
+      </div>
+
+      <!-- Notes -->
+      <div class="sidebar-card" style="margin-top:14px">
+        <div class="section-title mb-16">📝 Ghi chú</div>
+        <textarea class="note-area" id="notes" placeholder="Ghi từ vựng, cấu trúc ngữ pháp, điểm cần ôn..."></textarea>
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <button class="btn btn-secondary btn-sm" id="btn-save">💾 Lưu</button>
+          <button class="btn btn-secondary btn-sm" id="btn-clr">🗑 Xóa</button>
+        </div>
+      </div>
+
+      <!-- Done -->
+      <button class="btn btn-green" id="btn-done" style="width:100%;margin-top:14px">✅ Hoàn thành Reading</button>
+
+    </div>
+  </div>
+</div>
+
+<script>
+(async () => {
+  const $ = id => document.getElementById(id);
+  const store = {
+    get: (k,d) => { try { return JSON.parse(localStorage.getItem(k))??d; } catch { return d; } },
+    set: (k,v) => localStorage.setItem(k, JSON.stringify(v))
+  };
+  const fmt = s => { s=Math.floor(s||0); return `${Math.floor(s/60)}:${(s%60).toString().padStart(2,'0')}`; };
+  const toast = (msg, col='var(--success)') => {
+    const t = Object.assign(document.createElement('div'),{className:'toast',textContent:msg});
+    t.style.borderLeft=`3px solid ${col}`; document.body.appendChild(t); setTimeout(()=>t.remove(),2800);
+  };
+
+  // ── Load data ──
+  const testId = new URLSearchParams(location.search).get('test') || 'test1';
+  let test = null;
+  try {
+    const r = await fetch('data/tests.json');
+    const j = await r.json();
+    test = j.tests.find(t=>t.id===testId);
+  } catch { $('test-label').textContent='⚠️ Cần chạy qua server (node server.js)'; return; }
+  if (!test) return;
+
+  const R = test.reading;
+  $('test-label').textContent = test.name + ' · Reading';
+  document.title = `Reading – ${test.name} – AV Practice`;
+
+  // PDF
+  $('pdf-frame').src = R.pdf;
+  $('pdf-link').href = R.pdf;
+
+  // ── State ──
+  let userAnswers = {};
+  let graded = false;
+  let currentPartId = null;
+
+  const doneKey = `av_rdone_${testId}`;
+  let doneParts = store.get(doneKey, []);
+
+  // ── Progress ──
+  const renderProgress = () => {
+    const total = R.parts.length, done = doneParts.length;
+    $('prog-fill').style.width = `${(done/total)*100}%`;
+    $('prog-list').innerHTML = R.parts.map(p => `
+      <div class="prog-item">
+        <div class="prog-dot ${doneParts.includes(p.id)?'done':''}"></div>
+        <span style="color:${doneParts.includes(p.id)?'var(--success)':'var(--text-secondary)'}">${p.name} – ${p.label}</span>
+        ${doneParts.includes(p.id)?'<span style="margin-left:auto;font-size:0.75rem;color:var(--success)">✓</span>':''}
+      </div>`).join('');
+  };
+
+  // ── Render MCQ ──
+  const renderMCQ = (part) => {
+    const qs = part.questions || [];
+    $('q-count').textContent = `${qs.length} câu`;
+    graded = false;
+    $('score-area').style.display = 'none';
+    $('btn-check').style.display = 'inline-flex';
+
+    // Part 5: full text + explanation
+    if (part.id === 'part5') {
+      $('mcq-container').innerHTML = qs.map(q => {
+        const opts = Object.keys(q.options);
+        return `<div class="question-block" id="qb-${q.id}">
+          <div class="q-num">Câu ${q.id}</div>
+          <div class="q-text">${q.text}</div>
+          <div class="q-options">
+            ${opts.map(o => `
+              <div class="q-option" id="opt-${q.id}-${o}" onclick="selectOpt(${q.id},'${o}')">
+                <span class="opt-label">${o}</span>
+                <span>${q.options[o]}</span>
+              </div>`).join('')}
+          </div>
+          <div class="explanation-box" id="exp-${q.id}">
+            <div class="explanation-label">💡 Giải thích</div>
+            ${q.explanation || ''}
+          </div>
+        </div>`;
+      }).join('');
+    } else {
+      // Part 6 & 7: compact rows with circle buttons
+      $('mcq-container').innerHTML = `
+        <div style="font-size:0.78rem;color:var(--text-muted);margin-bottom:10px;padding:8px;background:var(--bg-secondary);border-radius:var(--radius-sm)">
+          🎯 Xem PDF bên trái → chọn đáp án A/B/C/D cho từng câu
+        </div>
+        <div class="compact-grid">
+          ${qs.map(q => {
+            const opts = Object.keys(q.options);
+            return `<div class="compact-row" id="qb-${q.id}">
+              <span class="compact-qnum">Câu ${q.id}</span>
+              <div class="compact-opts">
+                ${opts.map(o =>
+                  `<button class="c-opt" id="opt-${q.id}-${o}" onclick="selectOpt(${q.id},'${o}')">${o}</button>`
+                ).join('')}
+              </div>
+              <div class="compact-exp" id="exp-${q.id}">${q.explanation||''}</div>
+            </div>`;
+          }).join('')}
+        </div>`;
+    }
+
+    // Restore saved answers
+    qs.forEach(q => { if (userAnswers[q.id]) applySelect(q.id, userAnswers[q.id]); });
+  };
+
+  // ── Select ──
+  window.selectOpt = (qId, opt) => {
+    if (graded) return;
+    ['A','B','C','D'].forEach(o => {
+      document.getElementById(`opt-${qId}-${o}`)?.classList.remove('selected');
+    });
+    document.getElementById(`opt-${qId}-${opt}`)?.classList.add('selected');
+    userAnswers[qId] = opt;
+  };
+
+  const applySelect = (qId, opt) => {
+    ['A','B','C','D'].forEach(o => document.getElementById(`opt-${qId}-${o}`)?.classList.remove('selected'));
+    document.getElementById(`opt-${qId}-${opt}`)?.classList.add('selected');
+  };
+
+  // ── Grade ──
+  $('btn-check').addEventListener('click', () => {
+    const part = R.parts.find(p=>p.id===currentPartId);
+    if (!part) return;
+    const qs = part.questions || [];
+    let correct=0, answered=0;
+
+    qs.forEach(q => {
+      const ua = userAnswers[q.id];
+      if (ua) answered++;
+      ['A','B','C','D'].forEach(o => {
+        const el = document.getElementById(`opt-${q.id}-${o}`);
+        if (!el) return;
+        el.classList.remove('selected','correct','wrong');
+        if (o === q.answer) el.classList.add('correct');
+        else if (o === ua && ua !== q.answer) el.classList.add('wrong');
+      });
+      if (ua === q.answer) correct++;
+
+      // Show explanation
+      const expEl = document.getElementById(`exp-${q.id}`);
+      if (expEl) expEl.classList.add('show');
+    });
+
+    graded = true;
+    const pct = qs.length > 0 ? Math.round((correct/qs.length)*100) : 0;
+    $('score-area').style.display = 'block';
+    $('score-num').textContent = `${correct}/${qs.length}`;
+    const unanswered = qs.length - answered;
+    $('score-detail').textContent =
+      `${pct}% ${unanswered>0?`· Chưa làm: ${unanswered} câu · `:''}` +
+      (pct>=80?'Xuất sắc! 🎉':pct>=60?'Khá tốt 👍':'Cần luyện thêm 💪');
+    $('score-area').scrollIntoView({behavior:'smooth',block:'nearest'});
+
+    if (!doneParts.includes(currentPartId)) {
+      doneParts.push(currentPartId); store.set(doneKey, doneParts); renderProgress();
+    }
+    // Update global reading stats
+    const stats = store.get('av_stats',{testsDone:0,listeningCount:0,readingCount:0});
+    stats.readingCount = (stats.readingCount||0)+1; store.set('av_stats',stats);
+  });
+
+  $('btn-retry').addEventListener('click', () => {
+    userAnswers={}; graded=false;
+    const part = R.parts.find(p=>p.id===currentPartId);
+    if (part) renderMCQ(part);
+    $('score-area').style.display='none';
+  });
+
+  // ── Load part ──
+  const loadPart = (part) => {
+    currentPartId = part.id;
+    $('part-info').textContent = part.description || '';
+    document.querySelectorAll('.part-tab').forEach(t=>t.classList.toggle('active',t.dataset.pid===part.id));
+    userAnswers={}; graded=false;
+    renderMCQ(part);
+  };
+
+  // ── Part tabs ──
+  $('part-tabs').innerHTML = R.parts.map(p =>
+    `<button class="part-tab" data-pid="${p.id}">${p.name}<br/><small style="opacity:.65">${p.label}</small></button>`
+  ).join('');
+  $('part-tabs').addEventListener('click', e => {
+    const btn = e.target.closest('[data-pid]');
+    if (btn) { const p=R.parts.find(x=>x.id===btn.dataset.pid); if(p) loadPart(p); }
+  });
+
+  // ── Timer ──
+  const totalSecs = R.timeLimit||4500;
+  let timerSecs=totalSecs, timerOn=false, timerInt=null;
+  const renderTimer = () => {
+    $('timer-display').textContent=fmt(timerSecs);
+    $('timer-display').className='timer-display'+(timerSecs<300?' danger':timerSecs<600?' warning':'');
+    const pct=(timerSecs/totalSecs)*100;
+    // subtle color warning on timer label
+  };
+  renderTimer();
+  $('btn-timer').addEventListener('click',()=>{
+    if(timerOn){clearInterval(timerInt);timerOn=false;$('btn-timer').textContent='▶ Start';}
+    else{
+      timerOn=true;$('btn-timer').textContent='⏸ Pause';
+      timerInt=setInterval(()=>{
+        if(timerSecs<=0){clearInterval(timerInt);toast('⏰ Hết 75 phút!','var(--danger)');return;}
+        timerSecs--;renderTimer();
+      },1000);
+    }
+  });
+
+  // ── Notes ──
+  const noteKey=`av_note_R_${testId}`;
+  $('notes').value=store.get(noteKey,'');
+  $('btn-save').addEventListener('click',()=>{store.set(noteKey,$('notes').value);toast('💾 Đã lưu!');});
+  $('btn-clr').addEventListener('click',()=>{if(confirm('Xóa ghi chú?')){$('notes').value='';store.set(noteKey,'');}});
+
+  // ── Mark done ──
+  const prog=store.get(`av_prog_${testId}`,{});
+  if(prog.readingDone){$('btn-done').textContent='✅ Đã hoàn thành!';$('btn-done').disabled=true;}
+  $('btn-done').addEventListener('click',()=>{
+    const p=store.get(`av_prog_${testId}`,{}); p.readingDone=true; store.set(`av_prog_${testId}`,p);
+    toast('🎉 Hoàn thành Reading!');
+    $('btn-done').textContent='✅ Đã hoàn thành!'; $('btn-done').disabled=true;
+  });
+
+  // ── Init ──
+  renderProgress();
+  if(R.parts.length) loadPart(R.parts[0]);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,2452 @@
+{
+  "tests": [
+    {
+      "id": "test1",
+      "name": "TOEIC Test 1",
+      "listening": {
+        "timeLimit": 2700,
+        "questionsPdf": "assets/listening/test1/questions.pdf",
+        "parts": [
+          {
+            "id": "part1",
+            "name": "Part 1",
+            "label": "Photographs",
+            "description": "You will hear four statements about a picture. Choose the statement that best describes what you see.",
+            "audio": "assets/listening/test1/part1.mp3",
+            "questionRange": "1–6",
+            "questions": [
+              {
+                "id": 1,
+                "text": "Câu 1",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "C"
+              },
+              {
+                "id": 2,
+                "text": "Câu 2",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "B"
+              },
+              {
+                "id": 3,
+                "text": "Câu 3",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "D"
+              },
+              {
+                "id": 4,
+                "text": "Câu 4",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "A"
+              },
+              {
+                "id": 5,
+                "text": "Câu 5",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "B"
+              },
+              {
+                "id": 6,
+                "text": "Câu 6",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "C"
+              }
+            ]
+          },
+          {
+            "id": "part2",
+            "name": "Part 2",
+            "label": "Question-Response",
+            "description": "You will hear a question or statement and three responses. Choose the best response.",
+            "audio": "assets/listening/test1/part2.mp3",
+            "questionRange": "7–31",
+            "questions": [
+              {
+                "id": 7,
+                "text": "Câu 7",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)"
+                },
+                "answer": "B"
+              },
+              {
+                "id": 8,
+                "text": "Câu 8",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)"
+                },
+                "answer": "C"
+              },
+              {
+                "id": 9,
+                "text": "Câu 9",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)"
+                },
+                "answer": "A"
+              },
+              {
+                "id": 10,
+                "text": "Câu 10",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)"
+                },
+                "answer": "B"
+              },
+              {
+                "id": 11,
+                "text": "Câu 11",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)"
+                },
+                "answer": "C"
+              },
+              {
+                "id": 12,
+                "text": "Câu 12",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)"
+                },
+                "answer": "A"
+              },
+              {
+                "id": 13,
+                "text": "Câu 13",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)"
+                },
+                "answer": "B"
+              },
+              {
+                "id": 14,
+                "text": "Câu 14",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)"
+                },
+                "answer": "C"
+              },
+              {
+                "id": 15,
+                "text": "Câu 15",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)"
+                },
+                "answer": "A"
+              },
+              {
+                "id": 16,
+                "text": "Câu 16",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)"
+                },
+                "answer": "B"
+              },
+              {
+                "id": 17,
+                "text": "Câu 17",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)"
+                },
+                "answer": "C"
+              },
+              {
+                "id": 18,
+                "text": "Câu 18",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)"
+                },
+                "answer": "A"
+              },
+              {
+                "id": 19,
+                "text": "Câu 19",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)"
+                },
+                "answer": "C"
+              },
+              {
+                "id": 20,
+                "text": "Câu 20",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)"
+                },
+                "answer": "B"
+              },
+              {
+                "id": 21,
+                "text": "Câu 21",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)"
+                },
+                "answer": "A"
+              },
+              {
+                "id": 22,
+                "text": "Câu 22",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)"
+                },
+                "answer": "C"
+              },
+              {
+                "id": 23,
+                "text": "Câu 23",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)"
+                },
+                "answer": "B"
+              },
+              {
+                "id": 24,
+                "text": "Câu 24",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)"
+                },
+                "answer": "A"
+              },
+              {
+                "id": 25,
+                "text": "Câu 25",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)"
+                },
+                "answer": "C"
+              },
+              {
+                "id": 26,
+                "text": "Câu 26",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)"
+                },
+                "answer": "B"
+              },
+              {
+                "id": 27,
+                "text": "Câu 27",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)"
+                },
+                "answer": "A"
+              },
+              {
+                "id": 28,
+                "text": "Câu 28",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)"
+                },
+                "answer": "C"
+              },
+              {
+                "id": 29,
+                "text": "Câu 29",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)"
+                },
+                "answer": "B"
+              },
+              {
+                "id": 30,
+                "text": "Câu 30",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)"
+                },
+                "answer": "A"
+              },
+              {
+                "id": 31,
+                "text": "Câu 31",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)"
+                },
+                "answer": "B"
+              }
+            ]
+          },
+          {
+            "id": "part3",
+            "name": "Part 3",
+            "label": "Conversations",
+            "description": "You will hear conversations between two or more people. Choose the best answer to each question.",
+            "audio": "assets/listening/test1/part3.mp3",
+            "questionRange": "32–70",
+            "questions": [
+              {
+                "id": 33,
+                "text": "What does the woman ask for?",
+                "options": {
+                  "A": "A guest list",
+                  "B": "A dessert recipe",
+                  "C": "A business card",
+                  "D": "A promotional code"
+                },
+                "answer": "D"
+              },
+              {
+                "id": 34,
+                "text": "What does the man recommend doing?",
+                "options": {
+                  "A": "Returning some merchandise",
+                  "B": "Watching a video",
+                  "C": "Creating an account",
+                  "D": "Reading a review"
+                },
+                "answer": "B"
+              },
+              {
+                "id": 35,
+                "text": "What department do the speakers most likely work in?",
+                "options": {
+                  "A": "Accounting",
+                  "B": "Research and development",
+                  "C": "Maintenance",
+                  "D": "Marketing"
+                },
+                "answer": "D"
+              },
+              {
+                "id": 36,
+                "text": "What problem does the woman mention?",
+                "options": {
+                  "A": "A report has not been submitted.",
+                  "B": "An invoice is not accurate.",
+                  "C": "A policy has not been followed.",
+                  "D": "An order has not been delivered."
+                },
+                "answer": "B"
+              },
+              {
+                "id": 37,
+                "text": "What does the man say he will do?",
+                "options": {
+                  "A": "Delete an electronic file",
+                  "B": "Authorize a reimbursement",
+                  "C": "Set up a sales meeting",
+                  "D": "Review a spreadsheet"
+                },
+                "answer": "D"
+              },
+              {
+                "id": 38,
+                "text": "What industry do the speakers most likely work in?",
+                "options": {
+                  "A": "Shipping",
+                  "B": "Manufacturing",
+                  "C": "Hospitality",
+                  "D": "Meteorology"
+                },
+                "answer": "C"
+              },
+              {
+                "id": 39,
+                "text": "What is the reason for a delay?",
+                "options": {
+                  "A": "A schedule was written incorrectly.",
+                  "B": "Some equipment is not properly set up.",
+                  "C": "Weather conditions are poor.",
+                  "D": "Several staff members are absent."
+                },
+                "answer": "C"
+              },
+              {
+                "id": 40,
+                "text": "What does the man say he will do?",
+                "options": {
+                  "A": "Update a shift schedule",
+                  "B": "Clear a work space",
+                  "C": "Complete a checklist",
+                  "D": "Place a call"
+                },
+                "answer": "D"
+              },
+              {
+                "id": 41,
+                "text": "Why is the woman at the restaurant?",
+                "options": {
+                  "A": "To celebrate a retirement",
+                  "B": "To perform an inspection",
+                  "C": "To meet with some clients",
+                  "D": "To write an article"
+                },
+                "answer": "B"
+              },
+              {
+                "id": 42,
+                "text": "What does the woman mean when she says, “it’s very hot today”?",
+                "options": {
+                  "A": "She is unable to accept an invitation.",
+                  "B": "A cooling system is not working.",
+                  "C": "A meeting will end soon.",
+                  "D": "She wants to change a seating request."
+                },
+                "answer": "D"
+              },
+              {
+                "id": 43,
+                "text": "What does the man say about a parking garage?",
+                "options": {
+                  "A": "It is free for customers.",
+                  "B": "It is under construction.",
+                  "C": "It closes soon.",
+                  "D": "It offers monthly contracts."
+                },
+                "answer": "A"
+              },
+              {
+                "id": 44,
+                "text": "Where does the woman most likely work?",
+                "options": {
+                  "A": "At a university",
+                  "B": "At a publishing company",
+                  "C": "At an electronics store",
+                  "D": "At a grocery store"
+                },
+                "answer": "B"
+              },
+              {
+                "id": 45,
+                "text": "What does Murat ask about?",
+                "options": {
+                  "A": "How much an item costs",
+                  "B": "When an event will begin",
+                  "C": "How many people will participate",
+                  "D": "Where to set up some equipment"
+                },
+                "answer": "D"
+              },
+              {
+                "id": 46,
+                "text": "What does the woman suggest doing?",
+                "options": {
+                  "A": "Offering a discount",
+                  "B": "Displaying informational materials",
+                  "C": "Holding a contest",
+                  "D": "Visiting a registration table"
+                },
+                "answer": "B"
+              },
+              {
+                "id": 47,
+                "text": "What type of industry do the speakers most likely work in?",
+                "options": {
+                  "A": "Textile manufacturing",
+                  "B": "Food production",
+                  "C": "Health care",
+                  "D": "Hospitality"
+                },
+                "answer": "B"
+              },
+              {
+                "id": 48,
+                "text": "What business challenge are the speakers discussing?",
+                "options": {
+                  "A": "Lack of qualified personnel",
+                  "B": "Rising production costs",
+                  "C": "Changes in consumer preferences",
+                  "D": "Increased competition"
+                },
+                "answer": "C"
+              },
+              {
+                "id": 49,
+                "text": "What does the man say he will do?",
+                "options": {
+                  "A": "Research more information",
+                  "B": "Negotiate a discount",
+                  "C": "Upgrade some machinery",
+                  "D": "Train a new employee"
+                },
+                "answer": "A"
+              },
+              {
+                "id": 50,
+                "text": "Why is the man calling?",
+                "options": {
+                  "A": "To explain a business merger",
+                  "B": "To describe a new company policy",
+                  "C": "To offer the woman a work assignment",
+                  "D": "To invite the woman to speak at a conference"
+                },
+                "answer": "C"
+              },
+              {
+                "id": 51,
+                "text": "What does the man say a client is interested in doing?",
+                "options": {
+                  "A": "Purchasing another business",
+                  "B": "Finding a new office space",
+                  "C": "Revising a budget proposal",
+                  "D": "Creating a marketing campaign"
+                },
+                "answer": "A"
+              },
+              {
+                "id": 52,
+                "text": "What does the woman ask the man to send?",
+                "options": {
+                  "A": "A project description",
+                  "B": "An event invitation",
+                  "C": "Some social media links",
+                  "D": "Some contact information"
+                },
+                "answer": "D"
+              },
+              {
+                "id": 53,
+                "text": "What problem does the woman mention?",
+                "options": {
+                  "A": "A vehicle is out of service.",
+                  "B": "An employee is late.",
+                  "C": "A shipment was damaged.",
+                  "D": "Traffic is heavy."
+                },
+                "answer": "D"
+              },
+              {
+                "id": 54,
+                "text": "Where do the speakers most likely work?",
+                "options": {
+                  "A": "At a recording studio",
+                  "B": "At a catering company",
+                  "C": "At a radio station",
+                  "D": "At a car dealership"
+                },
+                "answer": "B"
+              },
+              {
+                "id": 55,
+                "text": "What does the man say he will do next?",
+                "options": {
+                  "A": "Arrange for a car repair",
+                  "B": "Order some kitchen supplies",
+                  "C": "Carry some items",
+                  "D": "Offer a refund"
+                },
+                "answer": "C"
+              },
+              {
+                "id": 56,
+                "text": "Why is the man calling the woman?",
+                "options": {
+                  "A": "To plan a company event",
+                  "B": "To confirm a work deadline",
+                  "C": "To discuss a career path",
+                  "D": "To accept a job offer"
+                },
+                "answer": "D"
+              },
+              {
+                "id": 57,
+                "text": "Who most likely is the woman?",
+                "options": {
+                  "A": "A newspaper editor",
+                  "B": "A university professor",
+                  "C": "A delivery person",
+                  "D": "A professional actor"
+                },
+                "answer": "B"
+              },
+              {
+                "id": 58,
+                "text": "What will the woman most likely do next?",
+                "options": {
+                  "A": "Negotiate a contract",
+                  "B": "Explain an office policy",
+                  "C": "Review a résumé",
+                  "D": "Describe a work schedule"
+                },
+                "answer": "C"
+              },
+              {
+                "id": 59,
+                "text": "What are the speakers mainly discussing?",
+                "options": {
+                  "A": "A new transportation route",
+                  "B": "A company merger",
+                  "C": "A public relations initiative",
+                  "D": "A medical facility design"
+                },
+                "answer": "C"
+              },
+              {
+                "id": 60,
+                "text": "Why does the woman say, “they also talked about it last year”?",
+                "options": {
+                  "A": "To express doubt",
+                  "B": "To explain a process",
+                  "C": "To make a recommendation",
+                  "D": "To update some information"
+                },
+                "answer": "A"
+              },
+              {
+                "id": 61,
+                "text": "What does the woman want to avoid?",
+                "options": {
+                  "A": "Paying a certification fee",
+                  "B": "Training additional staff",
+                  "C": "Upgrading some technology",
+                  "D": "Relocating to another city"
+                },
+                "answer": "C"
+              },
+              {
+                "id": 62,
+                "text": "Who is a gift for?",
+                "options": {
+                  "A": "Donors",
+                  "B": "Volunteers",
+                  "C": "Employees",
+                  "D": "Clients"
+                },
+                "answer": "C"
+              },
+              {
+                "id": 63,
+                "text": "Look at the graphic. What is the price of the item the man recommends?",
+                "options": {
+                  "A": "$21",
+                  "B": "$18",
+                  "C": "$24",
+                  "D": "$15"
+                },
+                "answer": "B"
+              },
+              {
+                "id": 64,
+                "text": "What is the woman going to send to the man?",
+                "options": {
+                  "A": "A graphic file",
+                  "B": "A list of names",
+                  "C": "A delivery address",
+                  "D": "An account number"
+                },
+                "answer": "B"
+              },
+              {
+                "id": 65,
+                "text": "What type of art will be displayed in an exhibit?",
+                "options": {
+                  "A": "Clay sculptures",
+                  "B": "Oil paintings",
+                  "C": "Black-and-white photographs",
+                  "D": "Pencil drawings"
+                },
+                "answer": "C"
+              },
+              {
+                "id": 66,
+                "text": "Look at the graphic. Which piece of artwork will no longer be included?",
+                "options": {
+                  "A": "A Careful Glance",
+                  "B": "Promises",
+                  "C": "Stormy Sea",
+                  "D": "The Moment"
+                },
+                "answer": "D"
+              },
+              {
+                "id": 67,
+                "text": "What does the woman say she will do right away?",
+                "options": {
+                  "A": "Speak with an artist",
+                  "B": "Edit a recording",
+                  "C": "Clean a gallery space",
+                  "D": "Greet some visitors"
+                },
+                "answer": "A"
+              },
+              {
+                "id": 68,
+                "text": "Who most likely are the speakers?",
+                "options": {
+                  "A": "Urban planners",
+                  "B": "Journalists",
+                  "C": "Engineers",
+                  "D": "Environmental scientists"
+                },
+                "answer": "D"
+              },
+              {
+                "id": 69,
+                "text": "Look at the graphic. Which site has already been completed?",
+                "options": {
+                  "A": "Site A",
+                  "B": "Site B",
+                  "C": "Site C",
+                  "D": "Site D"
+                },
+                "answer": "B"
+              },
+              {
+                "id": 70,
+                "text": "What does the man suggest focusing on?",
+                "options": {
+                  "A": "Work opportunities",
+                  "B": "Wind turbine costs",
+                  "C": "Supply chain issues",
+                  "D": "Power capacity"
+                },
+                "answer": "D"
+              }
+            ]
+          },
+          {
+            "id": "part4",
+            "name": "Part 4",
+            "label": "Talks",
+            "description": "You will hear short talks given by a single speaker. Choose the best answer to each question.",
+            "audio": "assets/listening/test1/part4.mp3",
+            "questionRange": "71–100",
+            "questions": [
+              {
+                "id": 71,
+                "text": "Who has recorded the message?",
+                "options": {
+                  "A": "A city mayor’s office",
+                  "B": "A maintenance department",
+                  "C": "An automobile dealership",
+                  "D": "A building management office"
+                },
+                "answer": "D"
+              },
+              {
+                "id": 72,
+                "text": "What are the listeners asked to do?",
+                "options": {
+                  "A": "Move their vehicles",
+                  "B": "Pay their parking fines",
+                  "C": "Use an alternate entrance",
+                  "D": "Participate in a meeting"
+                },
+                "answer": "A"
+              },
+              {
+                "id": 73,
+                "text": "What does the speaker say was mailed last week?",
+                "options": {
+                  "A": "An election ballot",
+                  "B": "A maintenance plan",
+                  "C": "A map",
+                  "D": "A coupon"
+                },
+                "answer": "D"
+              },
+              {
+                "id": 74,
+                "text": "What is the topic of the episode?",
+                "options": {
+                  "A": "Garden landscaping",
+                  "B": "Window installation",
+                  "C": "Roof maintenance",
+                  "D": "Kitchen renovations"
+                },
+                "answer": "C"
+              },
+              {
+                "id": 75,
+                "text": "What does the speaker emphasize about some tools?",
+                "options": {
+                  "A": "They should be cleaned regularly.",
+                  "B": "They should be of high quality.",
+                  "C": "They were recently invented.",
+                  "D": "They can be easily stored."
+                },
+                "answer": "B"
+              },
+              {
+                "id": 76,
+                "text": "What does the speaker recommend doing every year?",
+                "options": {
+                  "A": "Treating some wood",
+                  "B": "Consulting an electrician",
+                  "C": "Taking some photos",
+                  "D": "Draining some water"
+                },
+                "answer": "D"
+              },
+              {
+                "id": 77,
+                "text": "Who most likely is the speaker?",
+                "options": {
+                  "A": "A radio show host",
+                  "B": "A tour guide",
+                  "C": "A sales associate",
+                  "D": "A professor"
+                },
+                "answer": "B"
+              },
+              {
+                "id": 78,
+                "text": "What will happen at two o’clock?",
+                "options": {
+                  "A": "A lecture will begin.",
+                  "B": "A demonstration will be given.",
+                  "C": "An interview will be conducted.",
+                  "D": "A park will close."
+                },
+                "answer": "B"
+              },
+              {
+                "id": 79,
+                "text": "What is Orchid Caretakers?",
+                "options": {
+                  "A": "A book",
+                  "B": "An album",
+                  "C": "A film",
+                  "D": "A magazine"
+                },
+                "answer": "A"
+              },
+              {
+                "id": 80,
+                "text": "What event is taking place?",
+                "options": {
+                  "A": "A fund-raising concert",
+                  "B": "A sports competition",
+                  "C": "A play rehearsal",
+                  "D": "An awards ceremony"
+                },
+                "answer": "D"
+              },
+              {
+                "id": 81,
+                "text": "What does the organization plan to do?",
+                "options": {
+                  "A": "Change a policy",
+                  "B": "Repair a building",
+                  "C": "Select a winner",
+                  "D": "Sponsor a team"
+                },
+                "answer": "D"
+              },
+              {
+                "id": 82,
+                "text": "What does the speaker encourage the listeners to do?",
+                "options": {
+                  "A": "Order tickets early",
+                  "B": "Visit a community center",
+                  "C": "Purchase refreshments",
+                  "D": "Donate clothing"
+                },
+                "answer": "D"
+              },
+              {
+                "id": 83,
+                "text": "What is the topic of the workshop?",
+                "options": {
+                  "A": "Time management",
+                  "B": "Public speaking",
+                  "C": "Leadership skills",
+                  "D": "Professional networking"
+                },
+                "answer": "B"
+              },
+              {
+                "id": 84,
+                "text": "What does the speaker imply when he says, “Erina’s at the back of the room”?",
+                "options": {
+                  "A": "A guest speaker has just arrived.",
+                  "B": "Assistance is available.",
+                  "C": "Attendees should speak clearly and loudly.",
+                  "D": "An extra chair should be provided."
+                },
+                "answer": "B"
+              },
+              {
+                "id": 85,
+                "text": "What will the listeners do next?",
+                "options": {
+                  "A": "Sign their names on a list",
+                  "B": "Take a break",
+                  "C": "Participate in an introductory activity",
+                  "D": "Fill out a questionnaire"
+                },
+                "answer": "C"
+              },
+              {
+                "id": 86,
+                "text": "What is a historical site famous for?",
+                "options": {
+                  "A": "Its defensive walls",
+                  "B": "Its royal inhabitants",
+                  "C": "An event that happened there",
+                  "D": "Some artwork"
+                },
+                "answer": "C"
+              },
+              {
+                "id": 87,
+                "text": "Why does the speaker apologize?",
+                "options": {
+                  "A": "The listeners cannot take pictures.",
+                  "B": "An area is closed to the listeners.",
+                  "C": "There is no gift shop.",
+                  "D": "A tour started late."
+                },
+                "answer": "B"
+              },
+              {
+                "id": 88,
+                "text": "What does the speaker ask the listeners to do?",
+                "options": {
+                  "A": "Show their tickets",
+                  "B": "Put on protective clothing",
+                  "C": "Use some handrails",
+                  "D": "Speak quietly"
+                },
+                "answer": "C"
+              },
+              {
+                "id": 89,
+                "text": "What is the speaker mainly discussing?",
+                "options": {
+                  "A": "An advertising campaign",
+                  "B": "A market expansion",
+                  "C": "Some contract negotiations",
+                  "D": "Some audit procedures"
+                },
+                "answer": "B"
+              },
+              {
+                "id": 90,
+                "text": "What does the speaker imply when he says, “this is a priority”?",
+                "options": {
+                  "A": "Overtime pay has been approved.",
+                  "B": "A deadline must be met.",
+                  "C": "A client expressed concern.",
+                  "D": "A supervisor will be observing closely."
+                },
+                "answer": "B"
+              },
+              {
+                "id": 91,
+                "text": "What will the listeners do next?",
+                "options": {
+                  "A": "View a presentation",
+                  "B": "Review a budget",
+                  "C": "Revise some work",
+                  "D": "Do some research"
+                },
+                "answer": "A"
+              },
+              {
+                "id": 92,
+                "text": "Where do the listeners most likely work?",
+                "options": {
+                  "A": "At a hospital",
+                  "B": "At a restaurant",
+                  "C": "At a grocery store",
+                  "D": "At an electronics store"
+                },
+                "answer": "C"
+              },
+              {
+                "id": 93,
+                "text": "What is the main purpose of the talk?",
+                "options": {
+                  "A": "To make a request",
+                  "B": "To address staff complaints",
+                  "C": "To present a new schedule",
+                  "D": "To explain a technical process"
+                },
+                "answer": "A"
+              },
+              {
+                "id": 94,
+                "text": "What does the speaker imply when she says, “That will require management approval”?",
+                "options": {
+                  "A": "A process has not been followed.",
+                  "B": "The listeners may be asked to work extra shifts.",
+                  "C": "The listeners should contact a manager.",
+                  "D": "A change will not be immediate."
+                },
+                "answer": "D"
+              },
+              {
+                "id": 95,
+                "text": "According to the speaker, what was recently completed?",
+                "options": {
+                  "A": "A company reorganization",
+                  "B": "A park renovation",
+                  "C": "A volunteer training",
+                  "D": "A conservation project"
+                },
+                "answer": "B"
+              },
+              {
+                "id": 96,
+                "text": "Look at the graphic. Where does the speaker say refreshments will be served?",
+                "options": {
+                  "A": "Location 1",
+                  "B": "Location 2",
+                  "C": "Location 3",
+                  "D": "Location 4"
+                },
+                "answer": "C"
+              },
+              {
+                "id": 97,
+                "text": "What are the listeners reminded to do?",
+                "options": {
+                  "A": "Complete a survey",
+                  "B": "Donate some money",
+                  "C": "Join an organization",
+                  "D": "Post some photographs"
+                },
+                "answer": "A"
+              },
+              {
+                "id": 98,
+                "text": "What is the topic of today's lecture?",
+                "options": {
+                  "A": "When to harvest crops",
+                  "B": "Where to plant trees",
+                  "C": "How to grow vegetables",
+                  "D": "Which flowers need more sun"
+                },
+                "answer": "A"
+              },
+              {
+                "id": 99,
+                "text": "Look at the graphic. At what depth should samples be collected this month?",
+                "options": {
+                  "A": "12 inches",
+                  "B": "4 inches",
+                  "C": "6 inches",
+                  "D": "8 inches"
+                },
+                "answer": "D"
+              },
+              {
+                "id": 100,
+                "text": "What does the speaker encourage the listeners to do?",
+                "options": {
+                  "A": "Turn off mobile phones",
+                  "B": "Have some refreshments",
+                  "C": "Purchase some seeds",
+                  "D": "Sign up for a mailing list"
+                },
+                "answer": "D"
+              }
+            ]
+          }
+        ]
+      },
+      "reading": {
+        "timeLimit": 4500,
+        "pdf": "assets/reading/test1.pdf",
+        "parts": [
+          {
+            "id": "part5",
+            "name": "Part 5",
+            "label": "Incomplete Sentences",
+            "questionRange": "101–130",
+            "description": "Choose the word or phrase that best completes each sentence.",
+            "questions": [
+              {
+                "id": 101,
+                "text": "The manager asked all employees to submit their reports ------- the end of the week.",
+                "options": {
+                  "A": "by",
+                  "B": "until",
+                  "C": "during",
+                  "D": "while"
+                },
+                "answer": "A",
+                "explanation": "\"By\" chỉ thời hạn chót (deadline). \"Until\" chỉ hành động kéo dài đến một thời điểm. \"By the end of the week\" = trước cuối tuần là đúng ngữ cảnh."
+              },
+              {
+                "id": 102,
+                "text": "The new software ------- by the IT department before it was installed on all computers.",
+                "options": {
+                  "A": "tested",
+                  "B": "was testing",
+                  "C": "was tested",
+                  "D": "has tested"
+                },
+                "answer": "C",
+                "explanation": "Câu bị động: The software (vật) được kiểm tra bởi IT department → \"was tested\" (simple past passive). Chủ thể là 'software' không thể tự test."
+              },
+              {
+                "id": 103,
+                "text": "Employees are ------- to take at least two weeks of vacation each year.",
+                "options": {
+                  "A": "encouraged",
+                  "B": "encourage",
+                  "C": "encouraging",
+                  "D": "encouragement"
+                },
+                "answer": "A",
+                "explanation": "\"are + past participle\" → cấu trúc bị động. \"Encouraged\" là past participle đúng vị trí sau \"are\". Các đáp án khác sai về từ loại."
+              },
+              {
+                "id": 104,
+                "text": "The conference room is ------- for meetings on Tuesday and Thursday mornings.",
+                "options": {
+                  "A": "reserve",
+                  "B": "reserved",
+                  "C": "reserving",
+                  "D": "reservation"
+                },
+                "answer": "B",
+                "explanation": "\"is reserved\" = bị động, phòng họp được giữ/đặt trước. \"Reserve\" (V nguyên thể), \"reserving\" (hiện tại phân từ), \"reservation\" (danh từ) đều không phù hợp sau \"is\"."
+              },
+              {
+                "id": 105,
+                "text": "------- the heavy rain, the outdoor event was held as planned.",
+                "options": {
+                  "A": "Although",
+                  "B": "Despite",
+                  "C": "However",
+                  "D": "Because of"
+                },
+                "answer": "B",
+                "explanation": "\"Despite\" + danh từ/cụm danh từ (the heavy rain). \"Although\" + mệnh đề. \"However\" là trạng từ, không nối hai vế trực tiếp. \"Because of\" biểu thị lý do, không phù hợp nghĩa đối lập."
+              },
+              {
+                "id": 106,
+                "text": "The ------- of the annual report was delayed due to technical issues.",
+                "options": {
+                  "A": "publish",
+                  "B": "published",
+                  "C": "publisher",
+                  "D": "publication"
+                },
+                "answer": "D",
+                "explanation": "Cần danh từ sau mạo từ \"The\". \"Publication\" = sự xuất bản (đúng nghĩa và từ loại). \"Publisher\" = nhà xuất bản (người/công ty), không phù hợp ngữ cảnh."
+              },
+              {
+                "id": 107,
+                "text": "Please contact ------- human resources department if you have any questions about benefits.",
+                "options": {
+                  "A": "the",
+                  "B": "a",
+                  "C": "an",
+                  "D": "some"
+                },
+                "answer": "A",
+                "explanation": "\"The human resources department\" dùng mạo từ xác định \"the\" vì đây là phòng ban cụ thể, duy nhất trong công ty. \"A/an\" dùng khi chưa xác định."
+              },
+              {
+                "id": 108,
+                "text": "The sales figures for last quarter were ------- than the company had expected.",
+                "options": {
+                  "A": "highly",
+                  "B": "higher",
+                  "C": "highest",
+                  "D": "high"
+                },
+                "answer": "B",
+                "explanation": "So sánh hơn: \"than\" đi kèm với so sánh hơn (comparative). \"Higher than\" = cao hơn. \"Highest\" là so sánh nhất, không dùng với \"than\"."
+              },
+              {
+                "id": 109,
+                "text": "All visitors must sign in at the reception desk ------- entering the building.",
+                "options": {
+                  "A": "after",
+                  "B": "before",
+                  "C": "while",
+                  "D": "since"
+                },
+                "answer": "B",
+                "explanation": "Khách phải ký tên trước khi vào tòa nhà (tuần tự logic: ký tên → vào). \"Before entering\" = trước khi vào. \"After\" = sau khi (ngược logic)."
+              },
+              {
+                "id": 110,
+                "text": "The company offers ------- benefits package to attract qualified candidates.",
+                "options": {
+                  "A": "compete",
+                  "B": "competition",
+                  "C": "competitive",
+                  "D": "competitively"
+                },
+                "answer": "C",
+                "explanation": "Cần tính từ trước danh từ \"benefits package\". \"Competitive\" = cạnh tranh, hấp dẫn. \"Compete\" (V), \"competition\" (N), \"competitively\" (Adv) đều không phù hợp trước danh từ."
+              },
+              {
+                "id": 111,
+                "text": "The project team worked ------- to complete the assignment before the deadline.",
+                "options": {
+                  "A": "efficient",
+                  "B": "efficiency",
+                  "C": "efficiently",
+                  "D": "more efficient"
+                },
+                "answer": "C",
+                "explanation": "Cần trạng từ (adverb) bổ nghĩa cho động từ \"worked\". \"Efficiently\" là trạng từ = một cách hiệu quả. \"Efficient\" là tính từ, không bổ nghĩa được động từ."
+              },
+              {
+                "id": 112,
+                "text": "Customers who wish to return ------- purchases must provide a receipt.",
+                "options": {
+                  "A": "they",
+                  "B": "them",
+                  "C": "their",
+                  "D": "themselves"
+                },
+                "answer": "C",
+                "explanation": "Cần tính từ sở hữu (possessive adjective) trước danh từ \"purchases\". \"Their purchases\" = hàng hóa của họ. \"They\" (chủ ngữ), \"them\" (tân ngữ), \"themselves\" (phản thân) đều không đúng vị trí."
+              },
+              {
+                "id": 113,
+                "text": "The ------- of the new product line will begin in the spring.",
+                "options": {
+                  "A": "introduce",
+                  "B": "introduced",
+                  "C": "introduction",
+                  "D": "introducing"
+                },
+                "answer": "C",
+                "explanation": "Cần danh từ làm chủ ngữ của câu. \"Introduction\" = sự giới thiệu (N). \"Introduce\" (V), \"introduced\" (V-ed), \"introducing\" (V-ing) không thể làm chủ ngữ."
+              },
+              {
+                "id": 114,
+                "text": "The workshop is ------- to professionals in the marketing field.",
+                "options": {
+                  "A": "open",
+                  "B": "opened",
+                  "C": "opening",
+                  "D": "openly"
+                },
+                "answer": "A",
+                "explanation": "\"Is open to\" = mở cửa cho, dành cho (cụm tính từ cố định). \"Is opened\" = bị mở (hành động), \"is opening\" = đang mở (không hợp ngữ cảnh trạng thái)."
+              },
+              {
+                "id": 115,
+                "text": "Mr. Kim will ------- the new branch office in Singapore next month.",
+                "options": {
+                  "A": "manage",
+                  "B": "managed",
+                  "C": "management",
+                  "D": "managerial"
+                },
+                "answer": "A",
+                "explanation": "Sau will + động từ nguyên thể. \"Will manage\" = sẽ quản lý. \"Managed\" (V-ed past), \"management\" (N), \"managerial\" (Adj) đều không đúng sau \"will\"."
+              },
+              {
+                "id": 116,
+                "text": "The training session is designed ------- employees with new software tools.",
+                "options": {
+                  "A": "familiar",
+                  "B": "to familiarize",
+                  "C": "familiarized",
+                  "D": "familiarizing"
+                },
+                "answer": "B",
+                "explanation": "\"is designed to + V nguyên thể\" = được thiết kế để làm gì. \"To familiarize\" = để làm quen. Cấu trúc: be designed to do something."
+              },
+              {
+                "id": 117,
+                "text": "The ------- from the shareholders' meeting will be distributed next week.",
+                "options": {
+                  "A": "minute",
+                  "B": "minutes",
+                  "C": "minuting",
+                  "D": "minutely"
+                },
+                "answer": "B",
+                "explanation": "\"Minutes\" (plural) = biên bản cuộc họp (nghĩa chuyên biệt trong tiếng Anh thương mại). \"Minute\" (số ít) không dùng cho biên bản. \"Minutes of a meeting\" là cụm cố định."
+              },
+              {
+                "id": 118,
+                "text": "Employees are required to wear ------- identification badges at all times.",
+                "options": {
+                  "A": "they",
+                  "B": "them",
+                  "C": "their",
+                  "D": "theirs"
+                },
+                "answer": "C",
+                "explanation": "Cần tính từ sở hữu \"their\" trước danh từ \"identification badges\". \"Their badges\" = thẻ nhận dạng của họ."
+              },
+              {
+                "id": 119,
+                "text": "The seminar has been ------- due to low enrollment.",
+                "options": {
+                  "A": "cancel",
+                  "B": "canceling",
+                  "C": "canceled",
+                  "D": "cancellation"
+                },
+                "answer": "C",
+                "explanation": "\"has been + past participle\" = hiện tại hoàn thành bị động. \"Has been canceled\" = đã bị hủy. \"Cancel\" (V), \"canceling\" (V-ing), \"cancellation\" (N) sai cấu trúc."
+              },
+              {
+                "id": 120,
+                "text": "The restaurant is known ------- its excellent service and authentic cuisine.",
+                "options": {
+                  "A": "to",
+                  "B": "for",
+                  "C": "by",
+                  "D": "with"
+                },
+                "answer": "B",
+                "explanation": "\"Known for\" = nổi tiếng vì/về (cụm cố định). \"Known for something\" = nổi tiếng về điều gì đó. Không dùng \"to\", \"by\", hay \"with\" trong cụm này."
+              },
+              {
+                "id": 121,
+                "text": "Please ensure that all documents are ------- before the meeting begins.",
+                "options": {
+                  "A": "prepare",
+                  "B": "prepared",
+                  "C": "preparation",
+                  "D": "preparing"
+                },
+                "answer": "B",
+                "explanation": "\"are prepared\" = bị động (passive) - các tài liệu được chuẩn bị. Cấu trúc: be + past participle. \"Prepare\" (V nguyên thể), \"preparation\" (N), \"preparing\" (V-ing) không đúng sau \"are\"."
+              },
+              {
+                "id": 122,
+                "text": "The company will ------- expand its operations to three new markets next year.",
+                "options": {
+                  "A": "significance",
+                  "B": "significant",
+                  "C": "significantly",
+                  "D": "signify"
+                },
+                "answer": "C",
+                "explanation": "Cần trạng từ (adverb) bổ nghĩa cho động từ \"expand\". \"Significantly\" = đáng kể. \"Significant\" (Adj), \"significance\" (N), \"signify\" (V) không phù hợp."
+              },
+              {
+                "id": 123,
+                "text": "------- completing the online application, candidates will be contacted for an interview.",
+                "options": {
+                  "A": "After",
+                  "B": "Although",
+                  "C": "Because",
+                  "D": "While"
+                },
+                "answer": "A",
+                "explanation": "\"After completing\" = sau khi hoàn thành (cụm giới từ + V-ing). Sau khi nộp đơn → được liên hệ phỏng vấn (logic tuần tự). \"Although\", \"While\" biểu thị đối lập/đồng thời."
+              },
+              {
+                "id": 124,
+                "text": "The ------- workshop on leadership skills attracted over 200 participants.",
+                "options": {
+                  "A": "day-long",
+                  "B": "days-long",
+                  "C": "day-length",
+                  "D": "daily-long"
+                },
+                "answer": "A",
+                "explanation": "\"Day-long\" = kéo dài cả ngày (compound adjective). Đây là cách ghép từ đúng trong tiếng Anh. \"Days-long\" không chuẩn, \"day-length\" và \"daily-long\" không tồn tại."
+              },
+              {
+                "id": 125,
+                "text": "The office will be closed ------- the national holiday next Monday.",
+                "options": {
+                  "A": "at",
+                  "B": "in",
+                  "C": "for",
+                  "D": "by"
+                },
+                "answer": "C",
+                "explanation": "\"Closed for the holiday\" = đóng cửa nhân dịp lễ (\"for\" chỉ lý do/dịp). \"At\" dùng với giờ cụ thể, \"in\" dùng với tháng/năm, \"by\" chỉ thời hạn."
+              },
+              {
+                "id": 126,
+                "text": "Profits from the fundraiser will be ------- to local charities.",
+                "options": {
+                  "A": "donate",
+                  "B": "donating",
+                  "C": "donated",
+                  "D": "donation"
+                },
+                "answer": "C",
+                "explanation": "\"will be donated\" = bị động tương lai - lợi nhuận sẽ được quyên góp. \"Donate\" (V), \"donating\" (V-ing), \"donation\" (N) sai cấu trúc sau \"will be\"."
+              },
+              {
+                "id": 127,
+                "text": "The supervisor praised the team ------- their outstanding performance this quarter.",
+                "options": {
+                  "A": "to",
+                  "B": "about",
+                  "C": "for",
+                  "D": "with"
+                },
+                "answer": "C",
+                "explanation": "\"Praise someone for something\" = khen ngợi ai vì điều gì (cụm cố định). \"For\" chỉ lý do. Không dùng \"to\", \"about\", hay \"with\" với \"praise\"."
+              },
+              {
+                "id": 128,
+                "text": "The ------- presentation by Dr. Lee received very positive feedback from attendees.",
+                "options": {
+                  "A": "inspire",
+                  "B": "inspired",
+                  "C": "inspiring",
+                  "D": "inspiration"
+                },
+                "answer": "C",
+                "explanation": "\"Inspiring presentation\" = bài thuyết trình truyền cảm hứng (Adj bổ nghĩa N). \"Inspiring\" (hiện tại phân từ làm tính từ) = gây cảm hứng. \"Inspired\" = được truyền cảm hứng (bị động)."
+              },
+              {
+                "id": 129,
+                "text": "Staff members should ------- their schedules in advance to attend the training.",
+                "options": {
+                  "A": "adjust",
+                  "B": "adjusting",
+                  "C": "adjusted",
+                  "D": "adjustment"
+                },
+                "answer": "A",
+                "explanation": "\"Should + V nguyên thể\" là cấu trúc cơ bản. \"Should adjust\" = nên điều chỉnh. \"Adjusting\" (V-ing), \"adjusted\" (V-ed), \"adjustment\" (N) đều sai sau \"should\"."
+              },
+              {
+                "id": 130,
+                "text": "The position requires ------- experience in project management.",
+                "options": {
+                  "A": "extend",
+                  "B": "extensive",
+                  "C": "extensively",
+                  "D": "extension"
+                },
+                "answer": "B",
+                "explanation": "Cần tính từ (adjective) trước danh từ \"experience\". \"Extensive experience\" = kinh nghiệm phong phú/rộng. \"Extend\" (V), \"extensively\" (Adv), \"extension\" (N) không phù hợp trước danh từ."
+              }
+            ]
+          },
+          {
+            "id": "part6",
+            "name": "Part 6",
+            "label": "Text Completion",
+            "questionRange": "131–146",
+            "description": "Choose the best word or phrase to complete each passage. Refer to the PDF.",
+            "questions": [
+              {
+                "id": 131,
+                "text": "Câu 131",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "B",
+                "explanation": "Xem passage trong PDF để hiểu ngữ cảnh câu 131."
+              },
+              {
+                "id": 132,
+                "text": "Câu 132",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "C",
+                "explanation": "Xem passage trong PDF để hiểu ngữ cảnh câu 132."
+              },
+              {
+                "id": 133,
+                "text": "Câu 133",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "A",
+                "explanation": "Xem passage trong PDF để hiểu ngữ cảnh câu 133."
+              },
+              {
+                "id": 134,
+                "text": "Câu 134",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "D",
+                "explanation": "Xem passage trong PDF để hiểu ngữ cảnh câu 134."
+              },
+              {
+                "id": 135,
+                "text": "Câu 135",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "B",
+                "explanation": "Xem passage trong PDF để hiểu ngữ cảnh câu 135."
+              },
+              {
+                "id": 136,
+                "text": "Câu 136",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "A",
+                "explanation": "Xem passage trong PDF để hiểu ngữ cảnh câu 136."
+              },
+              {
+                "id": 137,
+                "text": "Câu 137",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "C",
+                "explanation": "Xem passage trong PDF để hiểu ngữ cảnh câu 137."
+              },
+              {
+                "id": 138,
+                "text": "Câu 138",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "D",
+                "explanation": "Xem passage trong PDF để hiểu ngữ cảnh câu 138."
+              },
+              {
+                "id": 139,
+                "text": "Câu 139",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "A",
+                "explanation": "Xem passage trong PDF để hiểu ngữ cảnh câu 139."
+              },
+              {
+                "id": 140,
+                "text": "Câu 140",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "B",
+                "explanation": "Xem passage trong PDF để hiểu ngữ cảnh câu 140."
+              },
+              {
+                "id": 141,
+                "text": "Câu 141",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "C",
+                "explanation": "Xem passage trong PDF để hiểu ngữ cảnh câu 141."
+              },
+              {
+                "id": 142,
+                "text": "Câu 142",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "A",
+                "explanation": "Xem passage trong PDF để hiểu ngữ cảnh câu 142."
+              },
+              {
+                "id": 143,
+                "text": "Câu 143",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "D",
+                "explanation": "Xem passage trong PDF để hiểu ngữ cảnh câu 143."
+              },
+              {
+                "id": 144,
+                "text": "Câu 144",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "B",
+                "explanation": "Xem passage trong PDF để hiểu ngữ cảnh câu 144."
+              },
+              {
+                "id": 145,
+                "text": "Câu 145",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "C",
+                "explanation": "Xem passage trong PDF để hiểu ngữ cảnh câu 145."
+              },
+              {
+                "id": 146,
+                "text": "Câu 146",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "A",
+                "explanation": "Xem passage trong PDF để hiểu ngữ cảnh câu 146."
+              }
+            ]
+          },
+          {
+            "id": "part7",
+            "name": "Part 7",
+            "label": "Reading Comprehension",
+            "questionRange": "147–200",
+            "description": "Choose the best answer to each question about the reading passages. Refer to the PDF.",
+            "questions": [
+              {
+                "id": 147,
+                "text": "Câu 147",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "D",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 147."
+              },
+              {
+                "id": 148,
+                "text": "Câu 148",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "A",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 148."
+              },
+              {
+                "id": 149,
+                "text": "Câu 149",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "C",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 149."
+              },
+              {
+                "id": 150,
+                "text": "Câu 150",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "B",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 150."
+              },
+              {
+                "id": 151,
+                "text": "Câu 151",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "D",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 151."
+              },
+              {
+                "id": 152,
+                "text": "Câu 152",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "A",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 152."
+              },
+              {
+                "id": 153,
+                "text": "Câu 153",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "C",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 153."
+              },
+              {
+                "id": 154,
+                "text": "Câu 154",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "B",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 154."
+              },
+              {
+                "id": 155,
+                "text": "Câu 155",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "A",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 155."
+              },
+              {
+                "id": 156,
+                "text": "Câu 156",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "D",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 156."
+              },
+              {
+                "id": 157,
+                "text": "Câu 157",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "C",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 157."
+              },
+              {
+                "id": 158,
+                "text": "Câu 158",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "B",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 158."
+              },
+              {
+                "id": 159,
+                "text": "Câu 159",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "A",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 159."
+              },
+              {
+                "id": 160,
+                "text": "Câu 160",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "D",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 160."
+              },
+              {
+                "id": 161,
+                "text": "Câu 161",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "C",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 161."
+              },
+              {
+                "id": 162,
+                "text": "Câu 162",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "B",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 162."
+              },
+              {
+                "id": 163,
+                "text": "Câu 163",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "A",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 163."
+              },
+              {
+                "id": 164,
+                "text": "Câu 164",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "D",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 164."
+              },
+              {
+                "id": 165,
+                "text": "Câu 165",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "C",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 165."
+              },
+              {
+                "id": 166,
+                "text": "Câu 166",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "B",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 166."
+              },
+              {
+                "id": 167,
+                "text": "Câu 167",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "A",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 167."
+              },
+              {
+                "id": 168,
+                "text": "Câu 168",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "D",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 168."
+              },
+              {
+                "id": 169,
+                "text": "Câu 169",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "C",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 169."
+              },
+              {
+                "id": 170,
+                "text": "Câu 170",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "B",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 170."
+              },
+              {
+                "id": 171,
+                "text": "Câu 171",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "A",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 171."
+              },
+              {
+                "id": 172,
+                "text": "Câu 172",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "D",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 172."
+              },
+              {
+                "id": 173,
+                "text": "Câu 173",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "C",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 173."
+              },
+              {
+                "id": 174,
+                "text": "Câu 174",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "B",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 174."
+              },
+              {
+                "id": 175,
+                "text": "Câu 175",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "D",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 175."
+              },
+              {
+                "id": 176,
+                "text": "Câu 176",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "A",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 176."
+              },
+              {
+                "id": 177,
+                "text": "Câu 177",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "C",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 177."
+              },
+              {
+                "id": 178,
+                "text": "Câu 178",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "B",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 178."
+              },
+              {
+                "id": 179,
+                "text": "Câu 179",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "A",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 179."
+              },
+              {
+                "id": 180,
+                "text": "Câu 180",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "D",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 180."
+              },
+              {
+                "id": 181,
+                "text": "Câu 181",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "C",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 181."
+              },
+              {
+                "id": 182,
+                "text": "Câu 182",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "B",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 182."
+              },
+              {
+                "id": 183,
+                "text": "Câu 183",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "A",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 183."
+              },
+              {
+                "id": 184,
+                "text": "Câu 184",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "D",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 184."
+              },
+              {
+                "id": 185,
+                "text": "Câu 185",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "C",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 185."
+              },
+              {
+                "id": 186,
+                "text": "Câu 186",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "B",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 186."
+              },
+              {
+                "id": 187,
+                "text": "Câu 187",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "A",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 187."
+              },
+              {
+                "id": 188,
+                "text": "Câu 188",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "D",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 188."
+              },
+              {
+                "id": 189,
+                "text": "Câu 189",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "C",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 189."
+              },
+              {
+                "id": 190,
+                "text": "Câu 190",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "B",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 190."
+              },
+              {
+                "id": 191,
+                "text": "Câu 191",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "A",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 191."
+              },
+              {
+                "id": 192,
+                "text": "Câu 192",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "D",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 192."
+              },
+              {
+                "id": 193,
+                "text": "Câu 193",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "C",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 193."
+              },
+              {
+                "id": 194,
+                "text": "Câu 194",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "B",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 194."
+              },
+              {
+                "id": 195,
+                "text": "Câu 195",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "A",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 195."
+              },
+              {
+                "id": 196,
+                "text": "Câu 196",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "D",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 196."
+              },
+              {
+                "id": 197,
+                "text": "Câu 197",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "C",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 197."
+              },
+              {
+                "id": 198,
+                "text": "Câu 198",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "B",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 198."
+              },
+              {
+                "id": 199,
+                "text": "Câu 199",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "A",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 199."
+              },
+              {
+                "id": 200,
+                "text": "Câu 200",
+                "audioOptions": true,
+                "options": {
+                  "A": "(A)",
+                  "B": "(B)",
+                  "C": "(C)",
+                  "D": "(D)"
+                },
+                "answer": "D",
+                "explanation": "Xem đoạn văn tương ứng trong PDF để kiểm tra đáp án câu 200."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

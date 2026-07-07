@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AV Practice – TOEIC Luyện Thi</title>
+  <meta name="description" content="Luyện thi TOEIC Listening & Reading với bộ đề thực chiến. Theo dõi tiến độ, chấm điểm tự động."/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="logo">🎓 AV Practice</a>
+  <div class="nav-links">
+    <a href="index.html" class="active">Trang chủ</a>
+    <a href="listening.html">Listening</a>
+    <a href="reading.html">Reading</a>
+  </div>
+</nav>
+
+<main>
+  <div class="hero">
+    <h1>Luyện Thi TOEIC<br/>Thực Chiến</h1>
+    <p>Nghe audio chuẩn, xem đề PDF, theo dõi tiến độ — tất cả trong một nơi.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a href="listening.html" class="btn btn-cyan" id="btn-start-listening">
+        🎧 Luyện Listening
+      </a>
+      <a href="reading.html" class="btn btn-green" id="btn-start-reading">
+        📖 Luyện Reading
+      </a>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Overall Stats -->
+    <div class="stats-bar" id="stats-bar">
+      <div class="stat-item">
+        <div class="stat-value" id="stat-tests-done">0</div>
+        <div class="stat-label">Bài đã làm</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="stat-listening-sessions">0</div>
+        <div class="stat-label">Lần nghe</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="stat-reading-sessions">0</div>
+        <div class="stat-label">Lần đọc</div>
+      </div>
+    </div>
+
+    <!-- Test List -->
+    <div class="section-header">
+      <h2 class="section-title">📚 Danh sách đề thi</h2>
+      <span class="badge badge-accent" id="test-count">Đang tải...</span>
+    </div>
+    <div class="test-grid" id="test-grid">
+      <div class="card text-muted" style="grid-column:1/-1;text-align:center;padding:40px">Đang tải dữ liệu...</div>
+    </div>
+  </div>
+</main>
+
+<script>
+(async () => {
+  const storage = {
+    get: (k, def) => { try { return JSON.parse(localStorage.getItem(k)) ?? def; } catch { return def; } },
+    set: (k, v) => localStorage.setItem(k, JSON.stringify(v))
+  };
+
+  // Load stats
+  const stats = storage.get('av_stats', { testsDone: 0, listeningCount: 0, readingCount: 0 });
+  document.getElementById('stat-tests-done').textContent = stats.testsDone;
+  document.getElementById('stat-listening-sessions').textContent = stats.listeningCount;
+  document.getElementById('stat-reading-sessions').textContent = stats.readingCount;
+
+  // Load tests
+  let tests = [];
+  try {
+    const res = await fetch('data/tests.json');
+    const data = await res.json();
+    tests = data.tests || [];
+  } catch (e) {
+    document.getElementById('test-grid').innerHTML = '<div class="card" style="grid-column:1/-1;text-align:center;color:var(--danger)">⚠️ Không tải được dữ liệu. Hãy chạy qua server (không mở file:// trực tiếp).</div>';
+    return;
+  }
+
+  document.getElementById('test-count').textContent = `${tests.length} đề`;
+
+  const grid = document.getElementById('test-grid');
+  grid.innerHTML = tests.map(t => {
+    const prog = storage.get(`av_prog_${t.id}`, {});
+    const lDone = prog.listeningDone ? '✅' : '○';
+    const rDone = prog.readingDone ? '✅' : '○';
+    const listenParts = t.listening?.parts?.length ?? 0;
+    return `
+    <div class="test-card" id="card-${t.id}">
+      <div class="test-card-title">${t.name}</div>
+      <div class="test-card-meta">
+        🎧 ${listenParts} Part Listening &nbsp;·&nbsp; 📖 3 Part Reading
+      </div>
+      <div style="display:flex;gap:8px;margin-bottom:16px;font-size:0.82rem;color:var(--text-muted)">
+        <span>${lDone} Listening</span>
+        <span>${rDone} Reading</span>
+      </div>
+      <div class="test-card-actions">
+        <a href="listening.html?test=${t.id}" class="btn btn-cyan btn-sm" id="btn-listening-${t.id}">🎧 Listening</a>
+        <a href="reading.html?test=${t.id}" class="btn btn-green btn-sm" id="btn-reading-${t.id}">📖 Reading</a>
+      </div>
+    </div>`;
+  }).join('');
+})();
+</script>
+</body>
+</html>
