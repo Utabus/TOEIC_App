@@ -39,7 +39,7 @@
     .explanation-box.show { display:block; }
     .explanation-label { font-weight:700; color:var(--accent-reading); margin-bottom:4px; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.05em; }
 
-    /* MCQ – compact circle buttons (Part 6 & 7) */
+    /* MCQ – compact circle buttons (Part 6 & 7 fallback) */
     .compact-grid { display:flex; flex-direction:column; gap:8px; }
     .compact-item { background:var(--bg-secondary); border:1px solid var(--border); border-radius:var(--radius-sm); transition:var(--transition); overflow:hidden; }
     .compact-item:hover { border-color:var(--border-hover); }
@@ -54,6 +54,33 @@
     .compact-exp { display:none; padding:8px 12px; background:rgba(16,185,129,0.06); border-top:1px solid rgba(16,185,129,0.2); font-size:0.81rem; color:var(--text-secondary); line-height:1.6; }
     .compact-exp.show { display:block; }
     .compact-exp-label { font-weight:700; color:var(--accent-reading); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:3px; }
+
+    /* ── Passage-based layout (Part 6 & 7 full mode) ── */
+    .passage-block { margin-bottom:24px; }
+    .passage-header { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+    .passage-badge { background:linear-gradient(135deg,rgba(16,185,129,0.2),rgba(5,150,105,0.1)); border:1px solid rgba(16,185,129,0.35); color:var(--accent-reading); font-size:0.75rem; font-weight:700; padding:3px 10px; border-radius:99px; text-transform:uppercase; letter-spacing:0.06em; }
+    .passage-type-badge { font-size:0.7rem; color:var(--text-muted); background:var(--bg-secondary); border:1px solid var(--border); padding:2px 8px; border-radius:99px; }
+    .passage-texts { display:flex; flex-direction:column; gap:10px; margin-bottom:16px; }
+    .passage-text { background:var(--bg-card); border:1px solid var(--border); border-left:3px solid var(--accent-reading); border-radius:0 var(--radius-sm) var(--radius-sm) 0; padding:14px 16px; font-size:0.875rem; line-height:1.8; color:var(--text-primary); white-space:pre-wrap; font-family:inherit; }
+    .passage-blank { display:inline-block; color:var(--accent-reading); font-weight:700; background:rgba(16,185,129,0.1); padding:0 4px; border-radius:3px; min-width:60px; text-align:center; }
+    .passage-qs { display:flex; flex-direction:column; gap:8px; }
+    .passage-q { background:var(--bg-secondary); border:1px solid var(--border); border-radius:var(--radius-sm); overflow:hidden; transition:var(--transition); }
+    .passage-q-header { padding:10px 14px; }
+    .passage-q-num { font-size:0.75rem; color:var(--accent-reading); font-weight:700; margin-bottom:4px; }
+    .passage-q-text { font-size:0.88rem; font-weight:500; line-height:1.5; }
+    .passage-q-opts { display:flex; flex-direction:column; gap:5px; padding:0 14px 10px; }
+    .pq-opt { display:flex; align-items:flex-start; gap:10px; padding:7px 11px; border-radius:var(--radius-sm); border:1px solid var(--border); background:var(--bg-card); cursor:pointer; font-size:0.84rem; line-height:1.4; transition:var(--transition); }
+    .pq-opt:hover { border-color:var(--border-hover); background:var(--bg-card-hover); }
+    .pq-opt.selected { border-color:var(--accent-reading); background:rgba(16,185,129,0.1); }
+    .pq-opt.correct { border-color:var(--success); background:rgba(34,197,94,0.12); color:var(--success); }
+    .pq-opt.wrong   { border-color:var(--danger);  background:rgba(239,68,68,0.12);  color:var(--danger); }
+    .pq-label { font-weight:700; min-width:18px; }
+    .passage-q-exp { display:none; padding:8px 14px 10px; background:rgba(16,185,129,0.06); border-top:1px solid rgba(16,185,129,0.15); font-size:0.81rem; color:var(--text-secondary); line-height:1.6; }
+    .passage-q-exp.show { display:block; }
+    .passage-divider { border:none; border-top:1px dashed var(--border); margin:20px 0; }
+    /* Hide PDF panel when in full-passage mode */
+    .reading-layout.no-pdf { grid-template-columns:1fr; }
+    .reading-layout.no-pdf .pdf-sticky { display:none; }
 
     /* Score */
     .score-card { background:linear-gradient(135deg,rgba(16,185,129,0.15),rgba(5,150,105,0.08)); border:1px solid rgba(16,185,129,0.35); border-radius:var(--radius); padding:22px; text-align:center; margin-top:16px; }
@@ -229,8 +256,9 @@
     $('score-area').style.display = 'none';
     $('btn-check').style.display = 'inline-flex';
 
-    // Part 5: full text + explanation (skip if audioOptions — e.g. scanned PDF)
+    // ── Part 5: full text inline ──
     if (part.id === 'part5' && !qs[0]?.audioOptions) {
+      document.querySelector('.reading-layout')?.classList.remove('no-pdf');
       $('mcq-container').innerHTML = qs.map(q => {
         const opts = Object.keys(q.options);
         return `<div class="question-block" id="qb-${q.id}">
@@ -249,8 +277,54 @@
           </div>
         </div>`;
       }).join('');
+
+    // ── Part 6 & 7: PASSAGE MODE (full inline, no PDF needed) ──
+    } else if (part.passages && part.passages.length > 0) {
+      document.querySelector('.reading-layout')?.classList.add('no-pdf');
+      const typeLabel = { single: 'Single Passage', double: 'Double Passage', triple: 'Triple Passage' };
+      $('mcq-container').innerHTML = part.passages.map((p, pi) => {
+        const texts = p.texts || (p.text ? [p.text] : []);
+        const pLabel = p.title || `Passage ${pi + 1}`;
+        const typeLbl = typeLabel[p.type] || 'Passage';
+        const passHtml = texts.map(t =>
+          `<div class="passage-text">${t.replace(/\n/g,'<br>').replace(/___(\d+)___/g, '<span class="passage-blank">($1)</span>')}</div>`
+        ).join('');
+        const qsHtml = (p.questions||[]).map(q => {
+          const opts = Object.keys(q.options);
+          return `<div class="passage-q" id="qb-${q.id}">
+            <div class="passage-q-header">
+              <div class="passage-q-num">Câu ${q.id}</div>
+              ${q.text ? `<div class="passage-q-text">${q.text}</div>` : ''}
+            </div>
+            <div class="passage-q-opts">
+              ${opts.map(o => `
+                <div class="pq-opt" id="opt-${q.id}-${o}" onclick="selectOpt(${q.id},'${o}')">
+                  <span class="pq-label">${o}</span>
+                  <span>${q.options[o]}</span>
+                </div>`).join('')}
+            </div>
+            <div class="passage-q-exp" id="exp-${q.id}">
+              <span style="font-weight:700;color:var(--accent-reading);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.05em">💡 Giải thích</span><br>
+              ${q.explanation || ''}
+            </div>
+          </div>`;
+        }).join('');
+        return `<div class="passage-block">
+          <div class="passage-header">
+            <span class="passage-badge">${pLabel}</span>
+            <span class="passage-type-badge">${typeLbl}</span>
+          </div>
+          <div class="passage-texts">${passHtml}</div>
+          <div class="passage-qs">${qsHtml}</div>
+        </div>${pi < part.passages.length-1 ? '<hr class="passage-divider">' : ''}`;
+      }).join('');
+      // Restore saved answers
+      part.passages.forEach(p => (p.questions||[]).forEach(q => { if(userAnswers[q.id]) applySelect(q.id, userAnswers[q.id]); }));
+      return;
+
+    // ── Part 6 & 7: FALLBACK compact (xem PDF) ──
     } else {
-      // Part 6 & 7: compact rows with circle buttons
+      document.querySelector('.reading-layout')?.classList.remove('no-pdf');
       $('mcq-container').innerHTML = `
         <div style="font-size:0.78rem;color:var(--text-muted);margin-bottom:10px;padding:8px;background:var(--bg-secondary);border-radius:var(--radius-sm)">
           🎯 Xem PDF bên trái → chọn đáp án A/B/C/D cho từng câu
@@ -299,7 +373,10 @@
   $('btn-check').addEventListener('click', () => {
     const part = R.parts.find(p=>p.id===currentPartId);
     if (!part) return;
-    const qs = part.questions || [];
+    // Collect all questions — either from flat array or from passages
+    const qs = part.passages
+      ? part.passages.flatMap(p => p.questions || [])
+      : (part.questions || []);
     let correct=0, answered=0;
 
     qs.forEach(q => {
