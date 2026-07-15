@@ -40,10 +40,10 @@
     .explanation-label { font-weight:700; color:var(--accent-reading); margin-bottom:4px; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.05em; }
 
     /* MCQ – compact circle buttons (Part 6 & 7) */
-    .compact-grid { display:flex; flex-direction:column; gap:6px; }
-    .compact-row { display:flex; align-items:center; gap:10px; padding:6px 12px; background:var(--bg-secondary); border:1px solid var(--border); border-radius:var(--radius-sm); transition:var(--transition); }
-    .compact-row:hover { border-color:var(--border-hover); }
-    .compact-row.graded-row { border-color:var(--border); }
+    .compact-grid { display:flex; flex-direction:column; gap:8px; }
+    .compact-item { background:var(--bg-secondary); border:1px solid var(--border); border-radius:var(--radius-sm); transition:var(--transition); overflow:hidden; }
+    .compact-item:hover { border-color:var(--border-hover); }
+    .compact-row { display:flex; align-items:center; gap:10px; padding:8px 12px; }
     .compact-qnum { font-size:0.82rem; font-weight:700; color:var(--text-muted); min-width:52px; }
     .compact-opts { display:flex; gap:6px; }
     .c-opt { width:36px; height:36px; border-radius:50%; border:2px solid var(--border); background:var(--bg-card); color:var(--text-secondary); font-size:0.88rem; font-weight:700; cursor:pointer; transition:var(--transition); display:flex; align-items:center; justify-content:center; }
@@ -51,8 +51,9 @@
     .c-opt.selected { border-color:var(--accent-reading); background:rgba(16,185,129,0.15); color:var(--accent-reading); }
     .c-opt.correct  { border-color:var(--success); background:rgba(34,197,94,0.18); color:var(--success); }
     .c-opt.wrong    { border-color:var(--danger);  background:rgba(239,68,68,0.18);  color:var(--danger); }
-    .compact-exp { font-size:0.76rem; color:var(--text-muted); margin-left:auto; max-width:200px; text-align:right; display:none; font-style:italic; }
+    .compact-exp { display:none; padding:8px 12px; background:rgba(16,185,129,0.06); border-top:1px solid rgba(16,185,129,0.2); font-size:0.81rem; color:var(--text-secondary); line-height:1.6; }
     .compact-exp.show { display:block; }
+    .compact-exp-label { font-weight:700; color:var(--accent-reading); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:3px; }
 
     /* Score */
     .score-card { background:linear-gradient(135deg,rgba(16,185,129,0.15),rgba(5,150,105,0.08)); border:1px solid rgba(16,185,129,0.35); border-radius:var(--radius); padding:22px; text-align:center; margin-top:16px; }
@@ -257,14 +258,19 @@
         <div class="compact-grid">
           ${qs.map(q => {
             const opts = Object.keys(q.options);
-            return `<div class="compact-row" id="qb-${q.id}">
-              <span class="compact-qnum">Câu ${q.id}</span>
-              <div class="compact-opts">
-                ${opts.map(o =>
-                  `<button class="c-opt" id="opt-${q.id}-${o}" onclick="selectOpt(${q.id},'${o}')">${o}</button>`
-                ).join('')}
+            return `<div class="compact-item" id="qb-${q.id}">
+              <div class="compact-row">
+                <span class="compact-qnum">Câu ${q.id}</span>
+                <div class="compact-opts">
+                  ${opts.map(o =>
+                    `<button class="c-opt" id="opt-${q.id}-${o}" onclick="selectOpt(${q.id},'${o}')">${o}</button>`
+                  ).join('')}
+                </div>
               </div>
-              <div class="compact-exp" id="exp-${q.id}">${q.explanation||''}</div>
+              <div class="compact-exp" id="exp-${q.id}">
+                <div class="compact-exp-label">💡 Giải thích</div>
+                ${q.explanation||'Xem đoạn văn tương ứng trong PDF.'}
+              </div>
             </div>`;
           }).join('')}
         </div>`;
