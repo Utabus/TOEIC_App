@@ -306,6 +306,31 @@ const part7Passages = [
        options:{A:"She often buys food from Crawford and Duval.",B:"She is a member of the Frequent Purchase Club.",C:"She applied a gift card to her purchase.",D:"She shopped during a grand-opening event."},
        answer:"B",explanation:'Cô Fong được chiết khấu 10% cho hóa đơn trị giá HK$4,500 (trên mức HK$500). Web site có nói điều khoản giảm giá này áp dụng cho thành viên Frequent Purchase Club.'}
     ]
+  },
+  {
+    passageId:"P7_15", title:"Web Pages – Osawa Corporate Team Building", type:"triple",
+    texts:[
+      `https://www.osawacorporateteambuilding.com/home\n\nOsawa Corporate Team Building\n\nBring your team together to promote cooperation while having fun! Our activities increase job satisfaction and engagement. We do all the planning so you can relax. Simply choose the event that is right for your team.\n\nScavenger Hunt—An outdoor game in which teams are given a list of objects to find and photograph with their phone or camera. Group size: 10-30 people. Time: 3 hours.\n\nGame Day—This is a high-energy game day with fun team activities. This event builds team strength, communication, and problem-solving skills. Group size: 20-500 people. Time: 2 hours.\n\nTeam Painting—Each team member creates a painting outdoors based on a predetermined theme. The paintings are linked together at the end. Group size: 6-30 people. Time: 1-2 hours.\n\nRobot Building—Your group will be broken into teams. Each team builds a robot to be used in challenges against the others. Group size: 10-30 people. Time: 2-3 hours.\n\nAll Chocolate—Your group will have the chance to use engineering skills to build a tower of chocolate. Then you learn how to make chocolate from a local chocolatier. Group size: 8-150 people. Time: 2 hours.\n\nBook an event in October and receive 15 percent off.`,
+      `https://www.osawacorporateteambuilding.com/requests\n\nHome | Requests | Reviews | Contact Us\nName: Alexandra Peterson\nCompany name: Whitten Tech\nE-mail address: apeterson@whittentech.com\nPhone: 617-555-0123\nLocation and date of event: Downtown Boston, October 15\n\nWhat events are you interested in? Choose your top three.\n1 Game Day | 2 Scavenger Hunt | 3 Team Painting\nNumber of participants: 28 people\n\nAdditional information:\nWe are interested in a fun activity for our sales team before the busy selling season begins. We spend a lot of time in the office, so we want an outdoor event.\n\nWe will contact you within three business days with a quote and confirmation.`,
+      `https://www.osawacorporateteambuilding.com/reviews\n\nWhat Our Customers Are Saying\n\nPosted by Whitten Tech on October 20\n\nOur team hired Osawa Corporate Team Building to lead an activity for the sales staff at Whitten Tech. The facilitator of the Scavenger Hunt, Lorenzo Benford, was excellent. The 28 members of our sales team all had positive feedback. They reported that they loved exploring the city, learning about its history, and finding new local attractions, even on a cold and cloudy day. I highly recommend this activity. The only downside was that we did not realize how far we would be walking. It would have been helpful to have an idea of the walking distances so we could have been fully prepared.`
+    ],
+    questions:[
+      {id:196,text:"What does the first Web page indicate about the Scavenger Hunt?",
+       options:{A:"It requires participants to rent a camera.",B:"It concludes with prizes for participants.",C:"It is a suitable activity for indoors.",D:"It takes three hours to complete."},
+       answer:"D",explanation:'Mô tả hoạt động Scavenger Hunt có ghi: "Time: 3 hours".'},
+      {id:197,text:"What event is best for a group of more than 200 people?",
+       options:{A:"Game Day",B:"Team Painting",C:"Robot Building",D:"All Chocolate"},
+       answer:"A",explanation:'Game Day hỗ trợ quy mô nhóm từ 20-500 người, trong khi các sự kiện khác có quy mô tối đa dưới 200 người.'},
+      {id:198,text:"What is suggested about Ms. Peterson?",
+       options:{A:"She has joined the Building Robots event in the past.",B:"She will receive a discount on an event.",C:"She recently started a job at Whitten Tech.",D:"She used to be an event planner."},
+       answer:"B",explanation:'Alexandra Peterson đăng ký tổ chức sự kiện vào ngày 15/10. Trang chủ ghi: "Book an event in October and receive 15 percent off" (Đặt lịch trong tháng 10 được giảm giá 15%).'},
+      {id:199,text:"What can be concluded about Whitten Tech?",
+       options:{A:"It changed its number of event participants.",B:"It provided its staff with free passes to museums.",C:"It was unable to schedule its first-choice activity.",D:"It was not able to hold its event outside."},
+       answer:"C",explanation:'Alexandra gửi yêu cầu đăng ký với thứ tự lựa chọn là: 1. Game Day, 2. Scavenger Hunt. Tuy nhiên, bài viết phản hồi (reviews) cho thấy họ đã chơi Scavenger Hunt → Họ đã không đặt được lựa chọn đầu tiên của mình.'},
+      {id:200,text:"According to the review, what was disappointing about the event?",
+       options:{A:"The focus on local history",B:"The lack of information about walking distances",C:"The difficulty in keeping the group together",D:"The uninteresting facilitator"},
+       answer:"B",explanation:'Bài đánh giá ghi nhược điểm duy nhất ("only downside") là họ không nhận thức được trước quãng đường phải đi bộ ("we did not realize how far we would be walking. It would have been helpful to have an idea of the walking distances").'}
+    ]
   }
 ];
 
