@@ -73,8 +73,88 @@ const part7Passages = [
        options:{A:"It begins at 11:00 A.M.",B:"It features advice on creating promotional content.",C:"It is being offered every month.",D:"It requires a small fee to attend."},
        answer:"B",explanation:'"creating effective and far-reaching social media content" + "cover topics related to making your business stand out" → (B) đúng. (A) Sai — bắt đầu 10:00 A.M. (C) Không đề cập hàng tháng. (D) Không đề cập phí.'}
     ]
+  },
+  {
+    passageId:"P7_2", title:"Announcement – Dine Out Darville Is Back!", type:"single",
+    texts:[`Dine Out Darville Is Back!\n\nDine Out Darville, which runs this year from June 22 to 28, is the perfect chance to try a restaurant in Darville for the first time or revisit one of your favorite restaurants in town. You might even visit multiple restaurants during the weeklong event! Twelve popular restaurants will offer special four-course dinners—including a cup of soup, a salad, a main course, and a dessert—all for a reduced price of $30. Reservations are highly recommended. Dine Out Darville welcomes hundreds of locals and tourists each year, and you do not want to miss your opportunity to get a great meal at a great price.\n\nVisit www.darvillebusinesscouncil.org/dineout for a list of participating restaurants.`],
+    questions:[
+      {id:149,text:"What is mentioned about Dine Out Darville?",
+       options:{A:"It lasts for one week.",B:"It is held in a different location each year.",C:"It is being held for the first time.",D:"It includes both lunch and dinner."},
+       answer:"A",explanation:'Sự kiện diễn ra từ ngày 22 đến 28 tháng 6, được mô tả là "weeklong event" (kéo dài một tuần) → (A) đúng.'},
+      {id:150,text:"What is NOT included in the reduced-price meals?",
+       options:{A:"A cup of soup",B:"A salad",C:"A dessert",D:"A beverage"},
+       answer:"D",explanation:'Bữa ăn giảm giá $30 gồm có soup, salad, món chính và tráng miệng. Đồ uống (beverage) không được liệt kê trong danh sách này.'}
+    ]
+  },
+  {
+    passageId:"P7_3", title:"Article – Rainsy To Move Headquarters", type:"single",
+    texts:[`Rainsy To Move Headquarters\n\nDADE (July 11)—Rainsy LLC announced yesterday that it is moving its headquarters to Dade.\nA data storage and analytics firm currently based in Salt Creek, Rainsy has clients that include some of the country's largest credit card companies, online retailers, and software providers. Rainsy helps these businesses manage and understand their customer data.\nRainsy is not planning to close its current offices in Salt Creek. However, the Dade location will become its new base of operations, as several members of its executive team will work there. The company's chief executive officer and chief financial officer will relocate to Dade along with approximately 50 percent of the company's workforce.\nThe office of Rainsy's chief technology officer will remain in Salt Creek, as will the account management team. The company's new Dade offices are located at 12 Glacier Parkway.`],
+    questions:[
+      {id:151,text:"What does Rainsy LLC do?",
+       options:{A:"It stores and analyzes consumer information.",B:"It sells technology products online.",C:"It processes credit card payments for retailers.",D:"It develops computer software programs."},
+       answer:"A",explanation:'Rainsy LLC là một công ty lưu trữ và phân tích dữ liệu (data storage and analytics firm) giúp doanh nghiệp quản lý và hiểu dữ liệu khách hàng → (A) đúng.'},
+      {id:152,text:"Who will be based in Dade?",
+       options:{A:"Rainsy's chief technology officer",B:"The entire Rainsy executive team",C:"About half of Rainsy's employees",D:"The Rainsy account management team"},
+       answer:"C",explanation:'Bài báo viết rằng khoảng 50% lực lượng lao động của công ty (approximately 50 percent of the company\'s workforce) sẽ chuyển đến Dade.'}
+    ]
+  },
+  {
+    passageId:"P7_4", title:"Text-Message Chain – Biz Plus Shopping", type:"single",
+    texts:[`Michael Liu (9:43 A.M.)\nHi, Jana. I'm at Biz Plus. The paper you need is out of stock until next week. Will another color work?\n\nJana Bhat (9:45 A.M.)\nWhat are the options?\n\nMichael Liu (9:46 A.M.)\nThey have yellow, green, and pink in the brand that you prefer.\n\nJana Bhat (9:47 A.M.)\nI really need blue. Are there other brands of blue printer paper?\n\nMichael Liu (9:48 A.M.)\nYes, but they're all a darker blue. They also cost more.\n\nJana Bhat (9:49 A.M.)\nOK, forget it. I'll place an order online.`],
+    questions:[
+      {id:153,text:"What is suggested about the paper Mr. Liu is shopping for?",
+       options:{A:"It is light blue.",B:"It is expensive.",C:"It is sold exclusively at Biz Plus.",D:"It has been discontinued."},
+       answer:"A",explanation:'Jana nói cô ấy thực sự cần màu xanh dương, và Michael bảo các hãng khác chỉ có màu xanh đậm hơn (darker blue) → loại Jana cần ban đầu là xanh dương nhạt (light blue) → (A) đúng.'},
+      {id:154,text:"At 9:49 A.M., what does Ms. Bhat most likely mean when she writes, 'OK, forget it'?",
+       options:{A:"She wants to check her budget.",B:"She thinks Mr. Liu should not purchase paper at Biz Plus.",C:"She believes Mr. Liu should not place an order this week.",D:"She plans to cancel her order."},
+       answer:"B",explanation:'Jana Bhat nói "OK, forget it. I\'ll place an order online" (Thôi bỏ đi, tôi sẽ tự đặt mua trực tuyến) tức là cô ấy không muốn Michael mua giấy ở Biz Plus nữa.'}
+    ]
+  },
+  {
+    passageId:"P7_5", title:"Letter – SFMA Courses", type:"single",
+    texts:[`20 May\n\nNeil Croft, Director\nQueensland Libraries\n13 Hummocky Road\nBrisbane QLD 4003\n\nDear Mr. Croft,\n\n— [1] —. I have read your inquiry about offering financial management courses at libraries across Queensland. The Society for Financial Management Advisors (SFMA) welcomes the opportunity to partner with the libraries to make basic financial management information more widely available.\n\nYou proposed that SFMA members could lead introductory courses at several library branches. — [2] —. SFMA members have offered similar courses to recent graduates, people changing careers, and first-time investors in the past.\n\n— [3] —. If you have a list of library branches that would host the first series of events, I can suggest facilitators who work near those libraries or would be willing to travel to them. Do you have a general profile of the expected attendees? — [4] —. That information would help us tailor the courses to audience needs and interests.\n\nI look forward to meeting with you to develop a plan. Please contact me by telephone at 07 5550 1344 to set up a time to discuss the courses.\n\nSincerely,\nRoberta Otney\nChairperson, Society for Financial Management Advisors`],
+    questions:[
+      {id:155,text:"Why did Ms. Otney write the letter?",
+       options:{A:"To welcome a new library director",B:"To register for an SFMA finance course",C:"To confirm some educational credentials",D:"To reply to a question from Mr. Croft"},
+       answer:"D",explanation:'Roberta Otney viết thư để trả lời thư hỏi thăm/yêu cầu trước đó của ông Croft ("I have read your inquiry...") về việc mở các khóa học quản lý tài chính ở thư viện.'},
+      {id:156,text:"What is one thing Ms. Otney requested?",
+       options:{A:"A library membership",B:"A list of course instructors",C:"The locations of some libraries",D:"Mr. Croft's telephone number"},
+       answer:"C",explanation:'Bà Otney yêu cầu danh sách các chi nhánh thư viện sẽ tổ chức sự kiện ("If you have a list of library branches...") để đề xuất người hướng dẫn phù hợp ở gần đó.'},
+      {id:157,text:"In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?\n\"This is something I would be happy to arrange.\"",
+       options:{A:"[1]",B:"[2]",C:"[3]",D:"[4]"},
+       answer:"B",explanation:'Câu "This is something I would be happy to arrange." (Đây là việc tôi rất sẵn lòng sắp xếp) phù hợp nhất ở vị trí [2], ngay sau đề xuất của ông Croft về việc nhờ thành viên SFMA hướng dẫn các khóa học tại các chi nhánh thư viện.'}
+    ]
+  },
+  {
+    passageId:"P7_6", title:"Advertisement – Claro Vision Offer", type:"single",
+    texts:[`Claro Vision\nThe difference is clear.\n\nTake advantage of our limited-time offer:\n50% off all eyeglass frames through 30 September\n\nOther advantages available today and every day:\n• Free eyeglass fittings and adjustments\n• Money-back guarantee if you are not completely satisfied\n• More than 500 locations in shopping malls throughout Canada\n• Low-cost vision checkups by licensed opticians\n\nTo find a store near you, visit www.clarovision.ca/locations, or call 416-555-0122 today!`],
+    questions:[
+      {id:158,text:"Why most likely was the advertisement created?",
+       options:{A:"To draw attention to an underused professional service",B:"To publicize the benefits of a warranty policy",C:"To announce the opening of new store locations",D:"To promote a temporary price discount"},
+       answer:"D",explanation:'Quảng cáo tập trung giới thiệu ưu đãi giảm giá 50% gọng kính đến hết ngày 30 tháng 9 ("50% off all eyeglass frames through 30 September").'},
+      {id:159,text:"What is stated about Claro Vision stores?",
+       options:{A:"They are larger than competitors' stores.",B:"They accept all major credit cards.",C:"They are located next to shopping malls.",D:"They provide eyeglass fittings at no cost."},
+       answer:"D",explanation:'Quảng cáo ghi rõ "Free eyeglass fittings and adjustments" (Đo lắp và điều chỉnh kính miễn phí) nghĩa là không mất tiền (at no cost) → (D) đúng.'},
+      {id:160,text:"What is stated about vision checkups?",
+       options:{A:"They are completed by a partner company.",B:"They are performed by a certified professional.",C:"They should be done every ten months.",D:"They are offered on a limited number of days."},
+       answer:"B",explanation:'Các buổi kiểm tra thị lực được thực hiện bởi "licensed opticians" (chuyên gia khúc xạ được cấp phép/chứng chỉ hành nghề) → (B) đúng.'}
+    ]
+  },
+  {
+    passageId:"P7_7", title:"Letter – Lease End Reminder", type:"single",
+    texts:[`Rossery Building Corporation\n2710 South Exmouth Drive\nSingapore 188509\n\n1 April\n\nElizabeth Balakrishnan\nBala Home Furnishings\n416 Holliton Drive C2\nSingapore 793801\n\nDear Ms. Balakrishnan,\n\nThis is a reminder that the one-year lease for your space will end on 30 April. Please contact my office at 1555 0124 to make an appointment to renew your lease. There will be a small increase in rent and fees because of rising operating costs.\n\nUpdated charges upon lease renewal:\nMonthly rental: S$1,800.00\nParking space fee: S$50.00\nCleaning service: S$10.00\nSecurity fee: S$35.00\nTotal monthly charge: S$1,895.00\n\nIf you are not renewing your lease, please notify our office by 15 April. Plan to vacate the property by 5 P.M. on 30 April. There will be an inspection of the property, and there may be charges for repairs or damages beyond normal usage.\n\nKind regards,\nAlexis Tan\nAlexis Tan`],
+    questions:[
+      {id:161,text:"What is the purpose of the letter?",
+       options:{A:"To explain the fees for equipment installation",B:"To offer a discount on a service",C:"To provide information about a lease agreement",D:"To request a change to a property amenity"},
+       answer:"C",explanation:'Bức thư nhắc nhở về việc hết hạn hợp đồng thuê mặt bằng ("lease for your space will end on 30 April"), kèm thông tin chi tiết về việc gia hạn hợp đồng.'},
+      {id:162,text:"According to the letter, what must Ms. Balakrishnan pay for each month?",
+       options:{A:"Furniture rental",B:"Office supplies",C:"An inspection fee",D:"A parking space"},
+       answer:"D",explanation:'Trong bảng chi phí hàng tháng sau khi gia hạn có ghi "Parking space fee: S$50.00" (Phí đỗ xe) → (D) đúng.'},
+      {id:163,text:"Who most likely is Ms. Tan?",
+       options:{A:"A repair person",B:"A property manager",C:"A cleaning person",D:"A security company employee"},
+       answer:"B",explanation:'Alexis Tan ký tên đại diện cho Rossery Building Corporation, phụ trách các vấn đề gia hạn hợp đồng thuê và nhắc nhở thời hạn hoàn trả mặt bằng → cô ấy là quản lý tòa nhà (property manager).'}
+    ]
   }
-  // Các passage tiếp theo sẽ được thêm khi có ảnh
 ];
 
 // ─── Update tests.json ───
