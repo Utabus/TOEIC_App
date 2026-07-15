@@ -228,8 +228,8 @@
     $('score-area').style.display = 'none';
     $('btn-check').style.display = 'inline-flex';
 
-    // Part 5: full text + explanation
-    if (part.id === 'part5') {
+    // Part 5: full text + explanation (skip if audioOptions — e.g. scanned PDF)
+    if (part.id === 'part5' && !qs[0]?.audioOptions) {
       $('mcq-container').innerHTML = qs.map(q => {
         const opts = Object.keys(q.options);
         return `<div class="question-block" id="qb-${q.id}">
